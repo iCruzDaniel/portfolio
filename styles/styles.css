@@ -308,6 +308,7 @@ section {
   transition: all 0.4s ease-in-out;
   width: 60%;
 }
+/* 
 .about-stats .progress-bars .progress-bar .progress-con .progress .python {
   width: 95%;
 }
@@ -325,7 +326,56 @@ section {
 }
 .about-stats .progress-bars .progress-bar .progress-con .progress .vue {
   width: 78%;
+} */
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin: 2rem 0;
 }
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--secondary-bg);
+  border-radius: 1rem;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.tech-item img {
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(0 2px 8px var(--accent));
+  transition: transform 0.2s, filter 0.2s;
+}
+
+.tech-item span {
+  margin-top: 0.7rem;
+  font-size: 1rem;
+  color: var(--primary-text);
+  opacity: 0;
+  transition: opacity 0.2s;
+  letter-spacing: 0.5px;
+}
+
+.tech-item:hover {
+  transform: translateY(-8px) scale(1.07);
+  box-shadow: 0 6px 24px var(--accent);
+}
+
+.tech-item:hover img {
+  filter: drop-shadow(0 4px 16px var(--accent));
+}
+
+.tech-item:hover span {
+  opacity: 1;
+}
+
 
 
 .stat-title {
