@@ -16,6 +16,9 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
             rel="stylesheet">
+
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+            crossorigin="anonymous"></script>
     </head>
     <body class="main-content">
         <header class="container header active" id="home">
@@ -180,7 +183,9 @@
                     <!-- FrameWorks -->
                     <div class="tech-grid">
 
-                        <div class="tech-item">
+                        <div id="iconoHtml" class="tech-item" alt="HTML"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalHtml">
                             <img
                                 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
                                 alt="Bootstrap" />
@@ -295,6 +300,168 @@
                 </div>
             </section>
 
+            <!-- POPUPS DE LOS CERTIFICADOS -->
+            <div>
+                <!-- Overlay -->
+                <div id="popupOverlay" class="popup-overlay"></div>
+
+                <!-- Ejemplo de popup para HTML5 -->
+                <div id="popup-html5" class="popup-modal">
+                    <button class="popup-close"
+                        onclick="cerrarPopup()">&times;</button>
+                    <div class="popup-title">HTML5</div>
+                    <img
+                        src="https://udemy-certificate.s3.amazonaws.com/image/UC-7adb1126-ef36-4e38-ba07-c7a050627c69.jpg?v=1740006514000"
+                        alt="HTML5">
+                </div>
+
+                <div id="popup-css3" class="popup-modal">
+                    <button class="popup-close"
+                        onclick="cerrarPopup()">&times;</button>
+                    <div class="popup-title">CSS3</div>
+                    <img
+                        src="https://udemy-certificate.s3.amazonaws.com/image/UC-7adb1126-ef36-4e38-ba07-c7a050627c69.jpg?v=1740006514000"
+                        alt="CSS3">
+                </div>
+
+                <div id="popup-javascript" class="popup-modal">
+                    <button class="popup-close"
+                        onclick="cerrarPopup()">&times;</button>
+                    <div class="popup-title">JavaScript</div>
+                    <img
+                        src="https://udemy-certificate.s3.amazonaws.com/image/UC-7adb1126-ef36-4e38-ba07-c7a050627c69.jpg?v=1740006514000"
+                        alt="JavaScript">
+                </div>
+
+                <div id="popup-php" class="popup-modal">
+                    <button class="popup-close"
+                        onclick="cerrarPopup()">&times;</button>
+                    <div class="popup-title">PHP</div>
+                    <img
+                        src="https://udemy-certificate.s3.amazonaws.com/image/UC-4c056805-db1d-4adc-890f-a439555592e1.jpg?v=1751260434000"
+                        alt="PHP">
+                </div>
+
+                <div id="popup-python" class="popup-modal">
+                    <button class="popup-close"
+                        onclick="cerrarPopup()">&times;</button>
+                    <div class="popup-title">Python</div>
+                    <img
+                        src="https://udemy-certificate.s3.amazonaws.com/image/UC-8a77fa72-289c-4503-b289-8d58c37d4153.jpg?v=1673482704000"
+                        alt="Python">
+                </div>
+
+                <div id="popup-arduino" class="popup-modal">
+                    <button class="popup-close"
+                        onclick="cerrarPopup()">&times;</button>
+                    <div class="popup-title">Arduino</div>
+                    <!-- <img
+                    src =""
+                    alt="Arduino"> -->
+                    <div class="popup-desc">
+                        <i class="fa-solid fa-bug"></i>
+                        No displonible.
+                    </div>
+                </div>
+
+                <div id="popup-bootstrap" class="popup-modal">
+                    <button class="popup-close"
+                        onclick="cerrarPopup()">&times;</button>
+                    <div class="popup-title">Bootstrap</div>
+                    <img
+                        src="https://udemy-certificate.s3.amazonaws.com/image/UC-1509a387-bc03-4852-a489-6eaf1bb65716.jpg?v=1751261058000"
+                        alt="Bootstrap">
+                </div>
+
+                <div id="popup-vue" class="popup-modal">
+                    <button class="popup-close"
+                        onclick="cerrarPopup()">&times;</button>
+                    <div class="popup-title">Vue3.js</div>
+                    <!-- <img
+                        src =""
+                        alt="Vue"> -->
+                    <div class="popup-desc">
+                        <i class="fa-solid fa-bug"></i>
+                        No displonible.
+                    </div>
+                </div>
+
+                <div id="popup-laravel" class="popup-modal">
+                    <button class="popup-close"
+                        onclick="cerrarPopup()">&times;</button>
+                    <div class="popup-title">Laravel</div>
+                    <img
+                        src="https://udemy-certificate.s3.amazonaws.com/image/UC-d9c18e6a-9618-4df7-b5f4-423200099bd6.jpg?v=1751260478000"
+                        alt="Laravel">
+                </div>
+
+                <div id="popup-fastapi" class="popup-modal">
+                    <button class="popup-close"
+                        onclick="cerrarPopup()">&times;</button>
+                    <div class="popup-title">FastApi</div>
+                    <img
+                        src="https://udemy-certificate.s3.amazonaws.com/image/UC-093c75d6-5301-42f2-8e28-fc822ade3343.jpg?v=1751259651000"
+                        alt="FastApi">
+                </div>
+
+                <div id="popup-docker" class="popup-modal">
+                    <button class="popup-close"
+                        onclick="cerrarPopup()">&times;</button>
+                    <div class="popup-title">Docker</div>
+                    <img
+                        src="https://udemy-certificate.s3.amazonaws.com/image/UC-fe1d4662-e261-4817-affa-805667e053e5.jpg?v=1751257533000"
+                        alt="Docker">
+                </div>
+
+                <div id="popup-terraform" class="popup-modal">
+                    <button class="popup-close"
+                        onclick="cerrarPopup()">&times;</button>
+                    <div class="popup-title">Terraform</div>
+                    <!-- <img
+                        src =""
+                        alt="Terraform"> -->
+                    <div class="popup-desc">
+                        <i class="fa-solid fa-bug"></i>
+                        No displonible.
+                    </div>
+                </div>
+
+                <div id="popup-ansible" class="popup-modal">
+                    <button class="popup-close"
+                        onclick="cerrarPopup()">&times;</button>
+                    <div class="popup-title">Ansible</div>
+                    <!-- <img
+                        src =""
+                        alt="Ansible"> -->
+                    <div class="popup-desc">
+                        <i class="fa-solid fa-bug"></i>
+                        No displonible.
+                    </div>
+                </div>
+
+                <div id="popup-linux" class="popup-modal">
+                    <button class="popup-close"
+                        onclick="cerrarPopup()">&times;</button>
+                    <div class="popup-title">Linux</div>
+                    <img
+                        src="https://udemy-certificate.s3.amazonaws.com/image/UC-a46e49db-9dc3-4d36-aae2-66ed050d3760.jpg?v=1751256893000"
+                        alt="Linux">
+                </div>
+
+                <div id="popup-digitalocean" class="popup-modal">
+                    <button class="popup-close"
+                        onclick="cerrarPopup()">&times;</button>
+                    <div class="popup-title">DigitalOcean</div>
+                    <!-- <img
+                        src=""
+                        alt="DigitalOcean"> -->
+                    <div class="popup-desc">
+                        <i class="fa-solid fa-bug"></i>
+                        No displonible.
+                    </div>
+                </div>
+            </div>
+
             <section class="container" id="portfolio">
                 <div class="main-title">
                     <h2>My <span>Portfolio</span><span class="bg-text">My
@@ -328,7 +495,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- PROYECTO TI -->
                     <div class="portfolio-item">
                         <div class="image">
@@ -839,3 +1006,43 @@
         <script src="app.js"></script>
     </body>
 </html>
+
+
+<script>
+// Mapea el alt de cada icono con el id de su popup
+const techPopupMap = {
+  'HTML5': 'popup-html5',
+  'CSS3': 'popup-css3',
+  'JavaScript': 'popup-javascript',
+  'PHP': 'popup-php',
+  'Python': 'popup-python',
+  'Arduino': 'popup-arduino',
+  'Bootstrap': 'popup-bootstrap',
+  'Vue': 'popup-vue',
+  'Laravel': 'popup-laravel',
+  'FastApi': 'popup-fastapi',
+  'Docker': 'popup-docker',
+  'Terraform': 'popup-terraform',
+  'Ansible': 'popup-ansible',
+  'Linux': 'popup-linux',
+  'DigitalOcean': 'popup-digitalocean',
+};
+
+document.querySelectorAll('.tech-item img').forEach(img => {
+  img.style.cursor = 'pointer';
+  img.addEventListener('click', function() {
+    const popupId = techPopupMap[this.alt];
+    if (popupId) abrirPopup(popupId);
+  });
+});
+
+function abrirPopup(id) {
+  document.getElementById('popupOverlay').style.display = 'block';
+  document.getElementById(id).style.display = 'block';
+}
+function cerrarPopup() {
+  document.getElementById('popupOverlay').style.display = 'none';
+  document.querySelectorAll('.popup-modal').forEach(p => p.style.display = 'none');
+}
+document.getElementById('popupOverlay').onclick = cerrarPopup;
+</script>
