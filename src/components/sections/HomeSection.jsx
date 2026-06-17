@@ -7,7 +7,7 @@ export default function HomeSection({ isActive }) {
         <div className="left-header">
           <div className="h-shape"></div>
           <div className="image">
-            <img style={{ borderRadius: '12px' }} src="img/Perfil.jpeg" alt="" />
+            <img style={{ borderRadius: '12px' }} src="img/Perfil.png" alt="" />
           </div>
         </div>
         <div className="right-header">
