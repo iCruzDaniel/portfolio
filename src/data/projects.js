@@ -8,6 +8,15 @@ export const projectCategories = [
 export const projects = [
   // ─── DEVOPS & TI ───
   {
+    id: 'mymailserver',
+    title: 'MyMailServer',
+    category: 'devops',
+    image: 'img/mymailserver.png',
+    links: [
+      { icon: 'fab fa-github', url: 'https://github.com/iCruzDaniel/MyMailServer' },
+    ],
+  },
+  {
     id: 'docker',
     title: 'Docker Implement',
     category: 'devops',
