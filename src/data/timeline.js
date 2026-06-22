@@ -4,14 +4,14 @@ const timeline = [
     duration: '2020 - 2024',
     title: 'Mechatronics Engineering',
     subtitle: 'Universidad Tecnológica de Bolívar',
-    description: 'Start Mechatronics Engineering.',
+    description: 'Pursued Mechatronics Engineering.',
   },
   {
     icon: 'fas fa-briefcase',
-    duration: '2023 - present',
-    title: 'Double Engineering whit Systems and Computation.',
+    duration: '2023 - 2026',
+    title: 'Dual Degree in Systems and Computation Engineering.',
     subtitle: 'Universidad Tecnológica de Bolívar',
-    description: 'Starts dual career with Computer and Systems Engineering.',
+    description: 'Completed dual degree in Computer and Systems Engineering.',
   },
   {
     icon: 'fas fa-briefcase',

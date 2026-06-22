@@ -17,7 +17,7 @@ export default function AboutSection({ isActive, onTechClick }) {
         <div className="left-about">
           <h4>Information About me</h4>
           <p>
-            Hi! I'm Daniel Cruz, a mechatronics and systems engineering student with hands-on
+            Hi! I'm Daniel Cruz, a Mechatronics and Systems Engineering professional with hands-on
             experience in software development, microcontroller programming, and artificial
             intelligence. I'm passionate about designing innovative solutions that blend hardware
             and software to tackle real-world challenges.

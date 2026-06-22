@@ -28,6 +28,15 @@ export const projects = [
 
   // ─── AI SOLUTIONS ───
   {
+    id: 'criteria',
+    title: 'CriterIA',
+    category: 'ai',
+    image: 'img/criteria.png',
+    links: [
+      { icon: 'fab fa-github', url: 'https://github.com/iCruzDaniel/CriterIA' },
+    ],
+  },
+  {
     id: 'phiusiil',
     title: 'PhiUSIIL Solution',
     category: 'ai',

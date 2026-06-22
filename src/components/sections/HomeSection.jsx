@@ -13,7 +13,7 @@ export default function HomeSection({ isActive }) {
         <div className="right-header">
           <h1 className="name">
             Hi, I'm <span>Daniel Cruz.</span>
-            A Engineer Professional.
+            An Engineering Professional.
           </h1>
           <p>
             I'm a Mechatronics Engineering & Systems Engineering Professional
