@@ -5,10 +5,13 @@ on:
     branches: ['main']
   workflow_dispatch:
 
+# IMPORTANT: setting any permission here restricts ALL unspecified ones to 'none'.
+# 'actions: write' is needed by upload-pages-artifact (it calls upload-artifact@v7 internally).
 permissions:
   contents: read
   pages: write
   id-token: write
+  actions: write
 
 concurrency:
   group: 'pages'
@@ -21,6 +24,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
@@ -32,9 +39,6 @@ jobs:
 
       - name: Build
         run: npm run build
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v6
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
