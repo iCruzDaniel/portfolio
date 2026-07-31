@@ -456,6 +456,124 @@ section {
     transform: scale(1);
 }
 
+// Project Carousel
+.project-carousel {
+    position: relative;
+}
+
+.carousel-side {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+.carousel-viewport {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform .45s ease-in-out;
+}
+
+.carousel-page {
+    flex: 0 0 100%;
+    min-width: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .carousel-track {
+        transition: none;
+    }
+}
+
+.carousel-arrow {
+    background-color: transparent;
+    border: 2px solid var(--color-secondary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    box-shadow: var(--box-shadow-1);
+    color: var(--color-secondary);
+    font-size: 0.9rem;
+
+    &--left { left: -2.85rem; }
+    &--right { right: -2.85rem; }
+
+    i { color: inherit; font-size: inherit; }
+
+    &:hover:not(.carousel-arrow--disabled) {
+        background-color: var(--color-secondary);
+        color: var(--color-white);
+        i { color: inherit; }
+    }
+
+    &--disabled {
+        opacity: 0.35;
+        cursor: default;
+    }
+}
+
+.carousel-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color-grey-4);
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+    padding: 0;
+
+    &--active {
+        background-color: var(--color-secondary);
+        transform: scale(1.2);
+    }
+
+    &:hover:not(.carousel-dot--active) {
+        background-color: var(--color-grey-2);
+    }
+}
+
+// Carousel — mobile: arrows move below the grid
+@media screen and (max-width: 660px) {
+    .carousel-side {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .carousel-viewport {
+        flex: 0 0 100%;
+    }
+
+    .carousel-arrow {
+        position: static;
+        transform: none;
+    }
+}
+
 //Blogs Section
 .blogs {
     display: grid;

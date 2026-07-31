@@ -1,6 +1,6 @@
 import Section from '../layout/Section';
 import MainTitle from '../shared/MainTitle';
-import PortfolioItem from '../shared/PortfolioItem';
+import ProjectCarousel from '../shared/ProjectCarousel';
 import { projects, projectCategories } from '../../data/projects';
 
 export default function PortfolioSection({ isActive }) {
@@ -20,11 +20,7 @@ export default function PortfolioSection({ isActive }) {
           <div key={cat.id}>
             <br /><br /><br />
             <h4 className="prog-title">{cat.title}</h4>
-            <div className="portfolios">
-              {catProjects.map((project) => (
-                <PortfolioItem key={project.id} {...project} />
-              ))}
-            </div>
+            <ProjectCarousel projects={catProjects} />
           </div>
         );
       })}

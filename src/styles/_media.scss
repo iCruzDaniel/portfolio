@@ -20,17 +20,18 @@
             display: none;
         }
     }
-    .right-header{
-        grid-row: 1;
-        padding-right: 0rem !important;
-        width: 90%;
-        margin: 0 auto;
+    .header-content .right-header{
+        display: contents;
         .name{
             font-size: 2.5rem !important;
             text-align: center;
             padding-top: 3rem;
         }
     }
+    .header-content .name{ order: 1; }
+    .header-content .left-header{ order: 2; }
+    .header-content .btn-con{ order: 3; width: 90%; margin: 0 auto; }
+    .header-content .right-header p{ order: 4; width: 90%; margin: 1.5rem auto; }
     .header-content .left-header .image{
         margin: 0 auto;
         width: 90%;
@@ -197,6 +198,37 @@
     .portfolios{
         grid-template-columns: repeat(1, 1fr);
     }
+
+    .carousel-viewport {
+        overflow: visible;
+    }
+    .carousel-track {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 1.5rem;
+        gap: 1.5rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    .carousel-page {
+        flex: 0 0 85%;
+        scroll-snap-align: start;
+        min-width: 0;
+    }
+    .carousel-dots {
+        display: none;
+    }
+    .portfolios .portfolio-item img {
+        height: 230px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .carousel-track {
+            scroll-snap-type: x proximity;
+        }
+    }
 }
 
 @media screen and (max-width:1070px){
@@ -241,17 +273,18 @@
             
         }
     }
-    .right-header{
-        grid-row: 1;
-        padding-right: 0rem !important;
-        width: 90%;
-        margin: 0 auto;
+    .header-content .right-header{
+        display: contents;
         .name{
             font-size: 2.5rem !important;
             text-align: center;
             padding-top: 3rem;
         }
     }
+    .header-content .name{ order: 1; }
+    .header-content .left-header{ order: 2; }
+    .header-content .btn-con{ order: 3; width: 90%; margin: 0 auto; }
+    .header-content .right-header p{ order: 4; width: 90%; margin: 1.5rem auto; }
 }
 @media screen and (max-width:700px){
     .container{

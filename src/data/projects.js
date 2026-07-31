@@ -86,6 +86,16 @@ export const projects = [
     ],
   },
   {
+    id: 'openwaitlist',
+    title: 'OpenWaitlist',
+    category: 'web',
+    image: 'img/open-waitlist.png',
+    links: [
+      { icon: 'fab fa-github', url: 'https://github.com/iCruzDaniel/open-waitlist' },
+    ],
+  },
+  
+  {
     id: 'yapergo',
     title: 'YaperGoUTB',
     category: 'web',
