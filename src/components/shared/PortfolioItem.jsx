@@ -1,3 +1,5 @@
+import Icon from './Icon';
+
 export default function PortfolioItem({ title, image, links, fit, bg }) {
   const imgStyle = { ...(fit ? { objectFit: fit } : {}), ...(bg ? { background: bg } : {}) };
   return (
@@ -16,7 +18,7 @@ export default function PortfolioItem({ title, image, links, fit, bg }) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className={link.icon}></i>
+              <Icon name={link.icon} />
             </a>
           ))}
         </div>

@@ -7,7 +7,15 @@ export default function HomeSection({ isActive }) {
         <div className="left-header">
           <div className="h-shape"></div>
           <div className="image">
-            <img style={{ borderRadius: '12px' }} src="img/Perfil.png" alt="Daniel Cruz" />
+            <img
+              style={{ borderRadius: '12px' }}
+              src="img/Perfil.webp"
+              alt="Daniel Cruz"
+              width={749}
+              height={748}
+              fetchPriority="high"
+              loading="eager"
+            />
           </div>
         </div>
         <div className="right-header">

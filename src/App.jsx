@@ -10,7 +10,6 @@ import CertPopup from './components/shared/CertPopup';
 import HomeSection from './components/sections/HomeSection';
 import AboutSection from './components/sections/AboutSection';
 import PortfolioSection from './components/sections/PortfolioSection';
-import BlogSection from './components/sections/BlogSection';
 import ContactSection from './components/sections/ContactSection';
 
 export default function App() {
@@ -27,7 +26,6 @@ export default function App() {
           onTechClick={openPopup}
         />
         <PortfolioSection isActive={activeSection === 'portfolio'} />
-        <BlogSection isActive={activeSection === 'blogs'} />
         <ContactSection isActive={activeSection === 'contact'} />
       </main>
 

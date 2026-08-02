@@ -1,8 +1,10 @@
+import Icon from './Icon';
+
 export default function TimelineItem({ icon, duration, title, subtitle, description }) {
   return (
     <div className="timeline-item">
       <div className="tl-icon">
-        <i className={icon}></i>
+        <Icon name={icon} />
       </div>
       <p className="tl-duration">{duration}</p>
       <h5>{title}<span> - {subtitle}</span></h5>

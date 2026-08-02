@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import PortfolioItem from './PortfolioItem';
+import Icon from './Icon';
 
 const DESKTOP_PAGE_SIZE = 3;
 
@@ -73,7 +74,7 @@ export default function ProjectCarousel({ projects }) {
             disabled={page === 0}
             aria-label="Previous projects"
           >
-            <i className="fas fa-chevron-left"></i>
+            <Icon name="chevron-left" />
           </button>
         )}
 
@@ -103,7 +104,7 @@ export default function ProjectCarousel({ projects }) {
             disabled={page === pageCount - 1}
             aria-label="Next projects"
           >
-            <i className="fas fa-chevron-right"></i>
+            <Icon name="chevron-right" />
           </button>
         )}
       </div>

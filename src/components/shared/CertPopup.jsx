@@ -1,4 +1,5 @@
 import certificates from '../../data/certificates';
+import Icon from './Icon';
 
 export default function CertPopup({ skillName, onClose }) {
   if (!skillName) return null;
@@ -16,7 +17,7 @@ export default function CertPopup({ skillName, onClose }) {
           <img src={cert.imageUrl} alt={skillName} />
         ) : (
           <div className="popup-desc">
-            <i className="fa-solid fa-bug"></i>
+            <Icon name="bug" />
             No displonible.
           </div>
         )}

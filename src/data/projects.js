@@ -11,27 +11,27 @@ export const projects = [
     id: 'mymailserver',
     title: 'MyMailServer',
     category: 'devops',
-    image: 'img/mymailserver.png',
+    image: 'img/mymailserver.webp',
     links: [
-      { icon: 'fab fa-github', url: 'https://github.com/iCruzDaniel/MyMailServer' },
+      { icon: 'github', url: 'https://github.com/iCruzDaniel/MyMailServer' },
     ],
   },
   {
     id: 'cirecipes',
     title: 'CI Recipes',
     category: 'devops',
-    image: 'img/cirecipes.png',
+    image: 'img/cirecipes.webp',
     links: [
-      { icon: 'fab fa-github', url: 'https://github.com/iCruzDaniel/cirecipes' },
+      { icon: 'github', url: 'https://github.com/iCruzDaniel/cirecipes' },
     ],
   },
   {
     id: 'docker',
     title: 'Docker Implement',
     category: 'devops',
-    image: 'img/docker.png',
+    image: 'img/docker.webp',
     links: [
-      { icon: 'fab fa-github', url: 'https://github.com/iCruzDaniel/evaluacionDocker' },
+      { icon: 'github', url: 'https://github.com/iCruzDaniel/evaluacionDocker' },
     ],
   },
   {
@@ -40,7 +40,7 @@ export const projects = [
     category: 'devops',
     image: 'img/infraestructure-ti.webp',
     links: [
-      { icon: 'fab fa-github', url: 'https://github.com/iCruzDaniel/proyecto-TI' },
+      { icon: 'github', url: 'https://github.com/iCruzDaniel/proyecto-TI' },
     ],
   },
 
@@ -49,27 +49,27 @@ export const projects = [
     id: 'criteria',
     title: 'CriterIA',
     category: 'ai',
-    image: 'img/criteria.png',
+    image: 'img/criteria.webp',
     links: [
-      { icon: 'fab fa-github', url: 'https://github.com/iCruzDaniel/CriterIA' },
+      { icon: 'github', url: 'https://github.com/iCruzDaniel/CriterIA' },
     ],
   },
   {
     id: 'phiusiil',
     title: 'PhiUSIIL Solution',
     category: 'ai',
-    image: 'img/phiusiil.jpg',
+    image: 'img/phiusiil.webp',
     links: [
-      { icon: 'fab fa-github', url: 'https://github.com/iCruzDaniel/Solucion-PhiUSIIL-URL-Phishing.git' },
+      { icon: 'github', url: 'https://github.com/iCruzDaniel/Solucion-PhiUSIIL-URL-Phishing.git' },
     ],
   },
   {
     id: 'roomie',
     title: 'Roomie',
     category: 'ai',
-    image: 'img/roomie.jpg',
+    image: 'img/roomie.webp',
     links: [
-      { icon: 'fab fa-github', url: 'https://github.com/iCruzDaniel/Roomie' },
+      { icon: 'github', url: 'https://github.com/iCruzDaniel/Roomie' },
     ],
   },
 
@@ -78,29 +78,29 @@ export const projects = [
     id: 'aerolab',
     title: 'AeroLab Cartagena',
     category: 'web',
-    image: 'img/aerolab.png',
+    image: 'img/aerolab.webp',
     links: [
-      { icon: 'fas fa-globe', url: 'https://aerolabcartagena-tj6cb.ondigitalocean.app' },
+      { icon: 'globe', url: 'https://aerolabcartagena-tj6cb.ondigitalocean.app' },
     ],
   },
   {
     id: 'ggc',
     title: 'GGC',
     category: 'web',
-    image: 'img/logo-GGC-blanco.png',
+    image: 'img/logo-GGC-blanco.webp',
     fit: 'contain',
     bg: 'var(--color-grey-6)',
     links: [
-      { icon: 'fas fa-globe', url: 'https://ggc.aluez.com/' },
+      { icon: 'globe', url: 'https://ggc.aluez.com/' },
     ],
   },
   {
     id: 'openwaitlist',
     title: 'OpenWaitlist',
     category: 'web',
-    image: 'img/open-waitlist.png',
+    image: 'img/open-waitlist.webp',
     links: [
-      { icon: 'fab fa-github', url: 'https://github.com/iCruzDaniel/open-waitlist' },
+      { icon: 'github', url: 'https://github.com/iCruzDaniel/open-waitlist' },
     ],
   },
   
@@ -108,9 +108,9 @@ export const projects = [
     id: 'yapergo',
     title: 'YaperGoUTB',
     category: 'web',
-    image: 'img/yapergo.png',
+    image: 'img/yapergo.webp',
     links: [
-      { icon: 'fab fa-github', url: 'https://github.com/ISCOUTB/AH-YaperGoUTB' },
+      { icon: 'github', url: 'https://github.com/ISCOUTB/AH-YaperGoUTB' },
     ],
   },
 
@@ -119,18 +119,18 @@ export const projects = [
     id: 'robotsoccers',
     title: 'RobotSoccers',
     category: 'mechatronics',
-    image: 'img/robotsoccers.png',
+    image: 'img/robotsoccers.webp',
     links: [
-      { icon: 'fab fa-github', url: 'https://github.com/iCruzDaniel/RobotSoccers' },
+      { icon: 'github', url: 'https://github.com/iCruzDaniel/RobotSoccers' },
     ],
   },
   {
     id: 'hexplorer',
     title: 'HEX-PLORER',
     category: 'mechatronics',
-    image: 'img/hexplorer.png',
+    image: 'img/hexplorer.webp',
     links: [
-      { icon: 'fab fa-github', url: 'https://github.com/iCruzDaniel/HEX-PLORER' },
+      { icon: 'github', url: 'https://github.com/iCruzDaniel/HEX-PLORER' },
     ],
   },
 ];

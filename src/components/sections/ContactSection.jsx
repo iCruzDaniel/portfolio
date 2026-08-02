@@ -1,6 +1,7 @@
 import Section from '../layout/Section';
 import MainTitle from '../shared/MainTitle';
 import ContactItem from '../shared/ContactItem';
+import Icon from '../shared/Icon';
 import { contactInfo, socialLinks } from '../../data/contact';
 
 export default function ContactSection({ isActive }) {
@@ -32,7 +33,7 @@ export default function ContactSection({ isActive }) {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <i className={link.icon}></i>
+                    <Icon name={link.icon} />
                   </a>
                 ))}
               </div>
