@@ -17,6 +17,15 @@ export const projects = [
     ],
   },
   {
+    id: 'cirecipes',
+    title: 'CI Recipes',
+    category: 'devops',
+    image: 'img/cirecipes.png',
+    links: [
+      { icon: 'fab fa-github', url: 'https://github.com/iCruzDaniel/cirecipes' },
+    ],
+  },
+  {
     id: 'docker',
     title: 'Docker Implement',
     category: 'devops',
