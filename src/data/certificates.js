@@ -30,6 +30,9 @@ const certificates = {
   Laravel: {
     imageUrl: 'https://udemy-certificate.s3.amazonaws.com/image/UC-d9c18e6a-9618-4df7-b5f4-423200099bd6.jpg?v=1751260478000',
   },
+  Symfony: {
+    imageUrl: null,
+  },
   FastApi: {
     imageUrl: 'https://udemy-certificate.s3.amazonaws.com/image/UC-093c75d6-5301-42f2-8e28-fc822ade3343.jpg?v=1751259651000',
   },
@@ -49,6 +52,9 @@ const certificates = {
     imageUrl: 'https://udemy-certificate.s3.amazonaws.com/image/UC-a46e49db-9dc3-4d36-aae2-66ed050d3760.jpg?v=1751256893000',
   },
   DigitalOcean: {
+    imageUrl: null,
+  },
+  AWS: {
     imageUrl: null,
   },
 };

@@ -18,6 +18,7 @@ export const skillGroups = [
       { name: 'Bootstrap', icon: `${CDN}/bootstrap/bootstrap-original.svg` },
       { name: 'Vue', icon: `${CDN}/vuejs/vuejs-original.svg` },
       { name: 'Laravel', icon: `${CDN}/laravel/laravel-original.svg` },
+      { name: 'Symfony', icon: `${CDN}/symfony/symfony-original.svg` },
       { name: 'FastApi', icon: `${CDN}/fastapi/fastapi-original.svg` },
       { name: 'React', icon: `${CDN}/react/react-original.svg` },
     ],
@@ -30,6 +31,7 @@ export const skillGroups = [
       { name: 'Ansible', icon: `${CDN}/ansible/ansible-original.svg` },
       { name: 'Linux', icon: `${CDN}/linux/linux-original.svg` },
       { name: 'DigitalOcean', icon: `${CDN}/digitalocean/digitalocean-original.svg` },
+      { name: 'AWS', icon: `${import.meta.env.BASE_URL}icons/aws-original.svg` },
     ],
   },
 ];

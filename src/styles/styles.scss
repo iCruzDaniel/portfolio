@@ -832,6 +832,15 @@ section {
     }
 }
 
+/* Dark mode: icons that are too dark to see on dark bg */
+body:not(.light-mode) .tech-item img[src*="symfony-original"],
+body:not(.light-mode) .tech-item img[src*="aws-original"] {
+    filter: invert(1) drop-shadow(0 4px 12px rgba(255,255,255,.15));
+    &:hover {
+        filter: invert(1) drop-shadow(0 6px 16px rgba(255,255,255,.25));
+    }
+}
+
 /* ─── Cert Popups ─── */
 .popup-overlay {
     display: none;
