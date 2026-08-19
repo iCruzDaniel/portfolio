@@ -1,7 +1,7 @@
 export const projectCategories = [
+  { id: 'web', title: 'APPS WEB & LANDING PAGES' },
   { id: 'devops', title: 'DEVOPS & TI SOLUTIONS' },
   { id: 'ai', title: 'AI SOLUTIONS' },
-  { id: 'web', title: 'APPS WEB & LANDING PAGES' },
   { id: 'mechatronics', title: 'MECHATRONICS PROJECTS' },
 ];
 
@@ -74,6 +74,15 @@ export const projects = [
   },
 
   // ─── APPS WEB & LANDING PAGES ───
+    {
+    id: 'openwaitlist',
+    title: 'OpenWaitlist',
+    category: 'web',
+    image: 'img/open-waitlist.webp',
+    links: [
+      { icon: 'github', url: 'https://github.com/iCruzDaniel/open-waitlist' },
+    ],
+  },
   {
     id: 'aerolab',
     title: 'AeroLab Cartagena',
@@ -81,6 +90,15 @@ export const projects = [
     image: 'img/aerolab.webp',
     links: [
       { icon: 'globe', url: 'https://aerolabcartagena-tj6cb.ondigitalocean.app' },
+    ],
+  },
+  {
+    id: 'referio',
+    title: 'ReferIO',
+    category: 'web',
+    image: 'img/referio.webp',
+    links: [
+      { icon: 'github', url: 'https://github.com/iCruzDaniel/refer-io' },
     ],
   },
   {
@@ -94,16 +112,6 @@ export const projects = [
       { icon: 'globe', url: 'https://ggc.aluez.com/' },
     ],
   },
-  {
-    id: 'openwaitlist',
-    title: 'OpenWaitlist',
-    category: 'web',
-    image: 'img/open-waitlist.webp',
-    links: [
-      { icon: 'github', url: 'https://github.com/iCruzDaniel/open-waitlist' },
-    ],
-  },
-  
   {
     id: 'yapergo',
     title: 'YaperGoUTB',
