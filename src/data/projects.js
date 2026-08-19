@@ -1,6 +1,6 @@
 export const projectCategories = [
   { id: 'web', title: 'APPS WEB & LANDING PAGES' },
-  { id: 'devops', title: 'DEVOPS & TI SOLUTIONS' },
+  { id: 'devops', title: 'DEVOPS & IT SOLUTIONS' },
   { id: 'ai', title: 'AI SOLUTIONS' },
   { id: 'mechatronics', title: 'MECHATRONICS PROJECTS' },
 ];

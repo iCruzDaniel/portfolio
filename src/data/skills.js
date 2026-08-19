@@ -27,6 +27,7 @@ export const skillGroups = [
     title: 'DevOps',
     items: [
       { name: 'Docker', icon: `${CDN}/docker/docker-original.svg` },
+      { name: 'GitHub Actions', icon: `${import.meta.env.BASE_URL}icons/github-actions-light.svg` },
       { name: 'Terraform', icon: `${CDN}/terraform/terraform-original.svg` },
       { name: 'Ansible', icon: `${CDN}/ansible/ansible-original.svg` },
       { name: 'Linux', icon: `${CDN}/linux/linux-original.svg` },

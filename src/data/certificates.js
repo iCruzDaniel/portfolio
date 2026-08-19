@@ -42,6 +42,9 @@ const certificates = {
   Docker: {
     imageUrl: 'https://udemy-certificate.s3.amazonaws.com/image/UC-fe1d4662-e261-4817-affa-805667e053e5.jpg?v=1751257533000',
   },
+  'GitHub Actions': {
+    imageUrl: null,
+  },
   Terraform: {
     imageUrl: null,
   },
