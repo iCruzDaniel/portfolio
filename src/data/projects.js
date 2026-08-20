@@ -26,6 +26,15 @@ export const projects = [
     ],
   },
   {
+    id: 'poly-k8',
+    title: 'Poly-K8',
+    category: 'devops',
+    image: 'img/poly-k8.webp',
+    links: [
+      { icon: 'github', url: 'https://github.com/iCruzDaniel/poly-k8' },
+    ],
+  },
+  {
     id: 'docker',
     title: 'Docker Implement',
     category: 'devops',
@@ -99,6 +108,15 @@ export const projects = [
     image: 'img/referio.webp',
     links: [
       { icon: 'github', url: 'https://github.com/iCruzDaniel/refer-io' },
+    ],
+  },
+  {
+    id: 'fast-foody',
+    title: 'Fast Foody',
+    category: 'web',
+    image: 'img/fast-foody.webp',
+    links: [
+      { icon: 'github', url: 'https://github.com/iCruzDaniel/fast-foody' },
     ],
   },
   {

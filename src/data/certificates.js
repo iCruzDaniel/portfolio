@@ -42,6 +42,9 @@ const certificates = {
   Docker: {
     imageUrl: 'https://udemy-certificate.s3.amazonaws.com/image/UC-fe1d4662-e261-4817-affa-805667e053e5.jpg?v=1751257533000',
   },
+  Kubernetes: {
+    imageUrl: null,
+  },
   'GitHub Actions': {
     imageUrl: null,
   },
@@ -52,7 +55,12 @@ const certificates = {
     imageUrl: null,
   },
   Linux: {
-    imageUrl: 'https://udemy-certificate.s3.amazonaws.com/image/UC-a46e49db-9dc3-4d36-aae2-66ed050d3760.jpg?v=1751256893000',
+    imageUrl: [
+      'https://udemy-certificate.s3.amazonaws.com/image/UC-a46e49db-9dc3-4d36-aae2-66ed050d3760.jpg?v=1751256893000',
+      'https://udemy-certificate.s3.amazonaws.com/image/UC-c3867dde-80ea-4e2b-a40b-1517407d1644.jpg?v=1787216817000',
+      'https://udemy-certificate.s3.amazonaws.com/image/UC-08bde1d9-098b-4ec3-acf9-c0b44df871ef.jpg?v=1787217063000',
+      'https://udemy-certificate.s3.amazonaws.com/image/UC-7b1b4dfb-bdb5-4ab0-a5c0-4aadaef30397.jpg?v=1787217192000',
+    ],
   },
   DigitalOcean: {
     imageUrl: null,
