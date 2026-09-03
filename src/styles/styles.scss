@@ -204,9 +204,17 @@ section {
             font-size: 3rem;
             span { color: var(--color-secondary); }
         }
-        p {
-            margin: 1.5rem 0;
-            line-height: 2rem;
+        .rt-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            .btn-con { align-self: flex-start; }
+        }
+        .rt-paragraph {
+            p {
+                margin: 1.5rem 0;
+                line-height: 2rem;
+            }
         }
     }
 }
@@ -386,6 +394,22 @@ section {
 .port-text {
     padding: 2rem 0;
     text-align: center;
+}
+
+.section-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+    margin-top: 4rem;
+    h3 {
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+    .btn-con {
+        align-self: center;
+    }
 }
 
 .portfolios {
@@ -741,6 +765,12 @@ section {
     align-self: flex-start;
     align-items: center;
     overflow: hidden;
+    font-family: inherit;
+    font-size: 1rem;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
     .btn-text { padding: 0 2rem; }
     .btn-icon {
         background-color: var(--color-secondary);

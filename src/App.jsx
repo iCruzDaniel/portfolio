@@ -18,14 +18,14 @@ export default function App() {
 
   return (
     <>
-      <HomeSection isActive={activeSection === 'home'} />
+      <HomeSection isActive={activeSection === 'home'} onNavigate={navigateTo} />
 
       <main>
         <AboutSection
           isActive={activeSection === 'about'}
           onTechClick={openPopup}
         />
-        <PortfolioSection isActive={activeSection === 'portfolio'} />
+        <PortfolioSection isActive={activeSection === 'portfolio'} onNavigate={navigateTo} />
         <ContactSection isActive={activeSection === 'contact'} />
       </main>
 

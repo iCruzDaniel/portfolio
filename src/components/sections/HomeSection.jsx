@@ -1,6 +1,7 @@
 import DownloadButton from '../shared/DownloadButton';
+import ContactButton from '../shared/ContactButton';
 
-export default function HomeSection({ isActive }) {
+export default function HomeSection({ isActive, onNavigate }) {
   return (
     <header className={`container header${isActive ? ' active' : ''}`} id="home">
       <div className="header-content">
@@ -19,17 +20,24 @@ export default function HomeSection({ isActive }) {
           </div>
         </div>
         <div className="right-header">
-          <h1 className="name">
-            Hi, I'm <span>Daniel Cruz.</span>
-            An Engineering Professional.
-          </h1>
-          <p>
-            I'm a Mechatronics Engineering & Systems Engineering Professional
-            focused on applying my skills in software development, microcontroller programming,
-            and AI in industry. Passionate about designing hardware-software solutions to
-            real-world problems.
-          </p>
-          <DownloadButton />
+          <div className="rt-heading">
+            <h1 className="name">
+              Hi, I'm <span>Daniel Cruz. </span>
+              An Engineering Professional.
+            </h1>
+          </div>
+          <div className="rt-cta">
+            <ContactButton onNavigate={onNavigate} />
+            <DownloadButton />
+          </div>
+          <div className="rt-paragraph">
+            <p>
+              I'm a Mechatronics Engineering & Systems Engineering Professional
+              focused on applying my skills in software development, microcontroller programming,
+              and AI in industry. Passionate about designing hardware-software solutions to
+              real-world problems.
+            </p>
+          </div>
         </div>
       </div>
     </header>

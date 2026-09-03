@@ -1,7 +1,7 @@
 export const projectCategories = [
   { id: 'web', title: 'APPS WEB & LANDING PAGES' },
-  { id: 'devops', title: 'DEVOPS & IT SOLUTIONS' },
   { id: 'ai', title: 'AI SOLUTIONS' },
+  { id: 'devops', title: 'DEVOPS & IT SOLUTIONS' },
   { id: 'mechatronics', title: 'MECHATRONICS PROJECTS' },
 ];
 
@@ -69,7 +69,7 @@ export const projects = [
     category: 'ai',
     image: 'img/phiusiil.webp',
     links: [
-      { icon: 'github', url: 'https://github.com/iCruzDaniel/Solucion-PhiUSIIL-URL-Phishing.git' },
+      { icon: 'github', url: 'https://github.com/iCruzDaniel/Solucion-PhiUSIIL-URL-Phishing' },
     ],
   },
   {
@@ -78,6 +78,7 @@ export const projects = [
     category: 'ai',
     image: 'img/roomie.webp',
     links: [
+      { icon: 'globe', url: 'https://roomie-icruzdaniel.streamlit.app' },
       { icon: 'github', url: 'https://github.com/iCruzDaniel/Roomie' },
     ],
   },
@@ -90,6 +91,16 @@ export const projects = [
     image: 'img/open-waitlist.webp',
     links: [
       { icon: 'github', url: 'https://github.com/iCruzDaniel/open-waitlist' },
+    ],
+  },
+  {
+    id: 'fast-foody',
+    title: 'Fast Foody',
+    category: 'web',
+    image: 'img/fast-foody.webp',
+    links: [
+      { icon: 'globe', url: 'https://icruzdaniel.github.io/fast-foody' },
+      { icon: 'github', url: 'https://github.com/iCruzDaniel/fast-foody' },
     ],
   },
   {
@@ -108,15 +119,6 @@ export const projects = [
     image: 'img/referio.webp',
     links: [
       { icon: 'github', url: 'https://github.com/iCruzDaniel/refer-io' },
-    ],
-  },
-  {
-    id: 'fast-foody',
-    title: 'Fast Foody',
-    category: 'web',
-    image: 'img/fast-foody.webp',
-    links: [
-      { icon: 'github', url: 'https://github.com/iCruzDaniel/fast-foody' },
     ],
   },
   {

@@ -35,4 +35,8 @@ export const socialLinks = [
     icon: 'github',
     url: 'https://github.com/iCruzDaniel',
   },
+  {
+    icon: 'whatsapp',
+    url: 'https://wa.me/573223657797',
+  },
 ];

@@ -1,9 +1,10 @@
 import Section from '../layout/Section';
 import MainTitle from '../shared/MainTitle';
 import ProjectCarousel from '../shared/ProjectCarousel';
+import ContactButton from '../shared/ContactButton';
 import { projects, projectCategories } from '../../data/projects';
 
-export default function PortfolioSection({ isActive }) {
+export default function PortfolioSection({ isActive, onNavigate }) {
   return (
     <Section id="portfolio" isActive={isActive}>
       <MainTitle prefix="My" highlighted="Portfolio" bgText="My Work" />
@@ -24,6 +25,11 @@ export default function PortfolioSection({ isActive }) {
           </div>
         );
       })}
+
+      <div className="section-cta">
+        <h3>Like what you see? Let's build something together.</h3>
+        <ContactButton onNavigate={onNavigate} label="Contact me" />
+      </div>
     </Section>
   );
 }
