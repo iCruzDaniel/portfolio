@@ -54,6 +54,16 @@ export const projects = [
   },
 
   // ─── AI SOLUTIONS ───
+    {
+    id: 'roomie',
+    title: 'Roomie',
+    category: 'ai',
+    image: 'img/roomie.webp',
+    links: [
+      { icon: 'globe', url: 'https://roomie-icruzdaniel.streamlit.app' },
+      { icon: 'github', url: 'https://github.com/iCruzDaniel/Roomie' },
+    ],
+  },
   {
     id: 'criteria',
     title: 'CriterIA',
@@ -72,16 +82,7 @@ export const projects = [
       { icon: 'github', url: 'https://github.com/iCruzDaniel/Solucion-PhiUSIIL-URL-Phishing' },
     ],
   },
-  {
-    id: 'roomie',
-    title: 'Roomie',
-    category: 'ai',
-    image: 'img/roomie.webp',
-    links: [
-      { icon: 'globe', url: 'https://roomie-icruzdaniel.streamlit.app' },
-      { icon: 'github', url: 'https://github.com/iCruzDaniel/Roomie' },
-    ],
-  },
+
 
   // ─── APPS WEB & LANDING PAGES ───
     {
@@ -90,6 +91,8 @@ export const projects = [
     category: 'web',
     image: 'img/open-waitlist.webp',
     links: [
+      { icon: 'globe', url: 'https://open-waitlist-one.vercel.app/' },
+      { icon: 'user', url: 'https://open-waitlist-one.vercel.app/admin?email=admin%40demo.com&pass=elAdmin123' },
       { icon: 'github', url: 'https://github.com/iCruzDaniel/open-waitlist' },
     ],
   },
@@ -100,7 +103,28 @@ export const projects = [
     image: 'img/fast-foody.webp',
     links: [
       { icon: 'globe', url: 'https://icruzdaniel.github.io/fast-foody' },
+      { icon: 'user', url: 'https://icruzdaniel.github.io/fast-foody/login' },
       { icon: 'github', url: 'https://github.com/iCruzDaniel/fast-foody' },
+    ],
+  },
+  {
+  id: 'referio',
+  title: 'ReferIO',
+  category: 'web',
+  image: 'img/referio.webp',
+  links: [
+    { icon: 'github', url: 'https://github.com/iCruzDaniel/refer-io' },
+  ],
+  },
+  {
+    id: 'axioma-energy',
+    title: 'Axioma Energy',
+    category: 'web',
+    image: 'img/axioma-energy.webp',
+    fit: 'contain',
+    bg: '#ffffff',
+    links: [
+      { icon: 'globe', url: 'https://axiomaenergy.co' },
     ],
   },
   {
@@ -110,15 +134,6 @@ export const projects = [
     image: 'img/aerolab.webp',
     links: [
       { icon: 'globe', url: 'https://aerolabcartagena-tj6cb.ondigitalocean.app' },
-    ],
-  },
-  {
-    id: 'referio',
-    title: 'ReferIO',
-    category: 'web',
-    image: 'img/referio.webp',
-    links: [
-      { icon: 'github', url: 'https://github.com/iCruzDaniel/refer-io' },
     ],
   },
   {
@@ -132,6 +147,7 @@ export const projects = [
       { icon: 'globe', url: 'https://ggc.aluez.com/' },
     ],
   },
+  /*
   {
     id: 'yapergo',
     title: 'YaperGoUTB',
@@ -140,9 +156,19 @@ export const projects = [
     links: [
       { icon: 'github', url: 'https://github.com/ISCOUTB/AH-YaperGoUTB' },
     ],
-  },
+  },*/
 
   // ─── MECHATRONICS ───
+  /*{
+    id: 'sihni',
+    title: 'SIHNI (En construcción)',
+    category: 'mechatronics',
+    image: 'img/not-available.webp',
+    bg: '#fff',
+    links: [
+      { icon: 'wrench', url: '#' },
+    ],
+  },*/
   {
     id: 'robotsoccers',
     title: 'RobotSoccers',
