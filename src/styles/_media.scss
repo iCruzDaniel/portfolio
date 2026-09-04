@@ -41,6 +41,11 @@
         }
     }
 
+    /* Hero: give the CTA row breathing room away from the profile image */
+    .header-content .rt-cta{
+        margin-bottom: 2rem;
+    }
+
     .controls{
         top: auto;
         bottom: 0;
@@ -242,6 +247,29 @@
     }
     .portfolios .portfolio-item img {
         height: 230px;
+    }
+    .portfolios {
+        padding-bottom: 0;
+    }
+    .section-cta {
+        margin-top: 2rem;
+        padding-bottom: 8rem;
+    }
+    /* Carousel gap: tighten block separation */
+    .prog-block {
+        margin-top: 1.75rem;
+        .prog-title {
+            margin-bottom: 1rem;
+        }
+    }
+    /* Skills icons smaller on mobile */
+    .tech-item img {
+        width: 48px;
+        height: 48px;
+    }
+    .tech-grid {
+        gap: 1.75rem 2.25rem;
+        margin: 1.5rem 0;
     }
     @media (prefers-reduced-motion: reduce) {
         .carousel-track {

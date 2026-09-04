@@ -18,8 +18,7 @@ export default function PortfolioSection({ isActive, onNavigate }) {
         if (catProjects.length === 0) return null;
 
         return (
-          <div key={cat.id}>
-            <br /><br /><br />
+          <div key={cat.id} className="prog-block">
             <h4 className="prog-title">{cat.title}</h4>
             <ProjectCarousel projects={catProjects} />
           </div>
