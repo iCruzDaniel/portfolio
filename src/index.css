@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/* ─── Tokens shadcn cult-ui mapeados a la paleta SCSS existente ─── */
+/* Dark mode (por defecto, body sin .light-mode)                          */
+:root {
+  --background: #191d2b; /* --color-primary  */
+  --foreground: #f8f8f8; /* --color-grey0    */
+  --card: #2a2e35; /* --color-grey-5   */
+  --card-foreground: #dbe1e8; /* --color-grey-1   */
+  --popover: #2a2e35;
+  --popover-foreground: #dbe1e8;
+  --primary: #27ae60; /* --color-secondary*/
+  --primary-foreground: #ffffff;
+  --secondary: #1e9b54;
+  --secondary-foreground: #ffffff;
+  --muted: #454e56; /* --color-grey-4   */
+  --muted-foreground: #b2becd; /* --color-grey-2   */
+  --accent: #454e56;
+  --accent-foreground: #f8f8f8;
+  --destructive: #e5484d;
+  --destructive-foreground: #ffffff;
+  --border: #6c7983; /* --color-grey-3   */
+  --input: #6c7983;
+  --ring: #27ae60;
+  --radius: 1rem;
+  /* Etiquetas/taglines: verde verificado AA sobre card dark (#2a2e35) */
+  --tagline: #27ae60;
+  /* CTAs: verde #1e7a43 + texto blanco, contraste AA verificado 7.93:1 */
+  --cta: #1e7a43;
+  --cta-foreground: #ffffff;
+}
+
+/* Light mode (body.light-mode) */
+.light-mode {
+  --background: #ffffff;
+  --foreground: #454e56;
+  --card: #dce0e4; /* --color-grey-5 (light) */
+  --card-foreground: #454e56;
+  --popover: #ffffff;
+  --popover-foreground: #454e56;
+  --primary: #1e9b54;
+  --primary-foreground: #ffffff;
+  --secondary: #1e9b54;
+  --secondary-foreground: #ffffff;
+  --muted: #f8f8f8;
+  --muted-foreground: #454e56;
+  --accent: #f8f8f8;
+  --accent-foreground: #454e56;
+  --destructive: #e5484d;
+  --destructive-foreground: #ffffff;
+  --border: #6c7983;
+  --input: #6c7983;
+  --ring: #1e9b54;
+  /* Taglines claros: verde #146b34 sobre card ligera, AA 8.00:1 */
+  --tagline: #146b34;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-tagline: var(--tagline);
+  --color-cta: var(--cta);
+  --color-cta-foreground: var(--cta-foreground);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* Preflight suave: no resetear el diseño SCSS global, solo heredar */
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+  ::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}

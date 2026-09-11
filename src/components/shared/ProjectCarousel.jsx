@@ -2,22 +2,33 @@ import { useState, useEffect, useRef } from 'react';
 import PortfolioItem from './PortfolioItem';
 import Icon from './Icon';
 
-const DESKTOP_PAGE_SIZE = 3;
+const BREAKPOINTS = [
+  { mq: '(max-width: 660px)', size: 1 },
+  { mq: '(max-width: 1250px)', size: 2 },
+  { mq: null, size: 3 }, // desktop default
+];
+
+function getPageSize() {
+  for (const b of BREAKPOINTS) {
+    if (b.mq && window.matchMedia?.(b.mq).matches) return b.size;
+  }
+  return BREAKPOINTS[BREAKPOINTS.length - 1].size;
+}
 
 export default function ProjectCarousel({ projects }) {
   const [page, setPage] = useState(0);
-  const [pageSize, setPageSize] = useState(DESKTOP_PAGE_SIZE);
+  const [pageSize, setPageSize] = useState(() => (typeof window === 'undefined' ? 3 : getPageSize()));
   const trackRef = useRef(null);
 
   // Reactive PAGE_SIZE via matchMedia
   useEffect(() => {
-    const mq = window.matchMedia?.('(max-width: 660px)');
-    if (!mq?.addEventListener) return;
+    const mqs = BREAKPOINTS.filter((b) => b.mq).map((b) => window.matchMedia(b.mq));
+    if (!mqs.every((mq) => mq?.addEventListener)) return;
 
-    const handler = (e) => setPageSize(e.matches ? 1 : DESKTOP_PAGE_SIZE);
-    handler(mq); // set initial value
-    mq.addEventListener('change', handler);
-    return () => mq.removeEventListener('change', handler);
+    const handler = () => setPageSize(getPageSize());
+    handler(); // set initial value
+    mqs.forEach((mq) => mq.addEventListener('change', handler));
+    return () => mqs.forEach((mq) => mq.removeEventListener('change', handler));
   }, []);
 
   // Chunk projects into pages based on pageSize

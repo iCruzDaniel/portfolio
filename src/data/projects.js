@@ -5,6 +5,16 @@ export const projectCategories = [
   { id: 'mechatronics', title: 'MECHATRONICS PROJECTS' },
 ];
 
+/*
+ * Estructura de cada proyecto:
+ *   title    — nombre
+ *   tagline  — frase de una línea: qué hace / qué problema resuelve
+ *   problem  — situación real que motivó el proyecto (1-2 frases)
+ *   solution — qué se construyó (1-2 frases)
+ *   result   — impacto (número si existe; si no, resultado cualitativo verificado)
+ *   stack    — tecnologías como tags
+ *   links    — { icon, label, url } con label explícito (Ver demo / Ver código / ...)
+ */
 export const projects = [
   // ─── DEVOPS & TI ───
   {
@@ -12,56 +22,76 @@ export const projects = [
     title: 'MyMailServer',
     category: 'devops',
     image: 'img/mymailserver.webp',
-    links: [
-      { icon: 'github', url: 'https://github.com/iCruzDaniel/MyMailServer' },
-    ],
+    tagline: 'Servidor de correo autogestionado, multi-cloud y con observabilidad completa, levantado con infraestructura como código.',
+    problem: 'Depender de Gmail/Outlook para un dominio propio cede los datos y se paga por usuario; montar un servidor de correo a mano es frágil y lleva semanas (SPF, DKIM, monitoreo, respaldo).',
+    solution: 'Stack completo de correo (Poste.io + Traefik) en un solo VPS, desplegado con Terraform multi-cloud (AWS/DigitalOcean), Ansible y monitoreo Prometheus/Grafana con DNS en Cloudflare.',
+    result: '3 de 4 fases completadas: correo operativo con proxy reverso, observabilidad y automatización multi-cloud reproducibles.',
+    stack: ['Docker', 'Terraform', 'Ansible', 'Cloudflare', 'Prometheus', 'Grafana', 'Traefik'],
+    links: [{ icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/MyMailServer' }],
   },
   {
     id: 'cirecipes',
     title: 'CI Recipes',
     category: 'devops',
     image: 'img/cirecipes.webp',
-    links: [
-      { icon: 'github', url: 'https://github.com/iCruzDaniel/cirecipes' },
-    ],
+    tagline: 'Biblioteca de pipelines CI/CD listos para copiar y pegar, clasificados y versionados por flujo.',
+    problem: 'Cada proyecto nuevo reescribía los mismos pipelines de CI/CD desde cero, sin documentación ni versionado, y cada uno terminaba distinto.',
+    solution: 'Flujos GitHub Actions reutilizables con ficha técnica (manifest.yml), código taxonómico por arquitectura y versionado por flujo: deploy a registry (GHCR + Dokploy) y a VPS por SSH con docker compose.',
+    result: 'Configurar CI/CD pasa de horas a minutos copiando un flujo ya probado y documentado.',
+    stack: ['GitHub Actions', 'Docker', 'YAML'],
+    links: [{ icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/cirecipes' }],
   },
   {
     id: 'poly-k8',
     title: 'Poly-K8',
     category: 'devops',
     image: 'img/poly-k8.webp',
-    links: [
-      { icon: 'github', url: 'https://github.com/iCruzDaniel/poly-k8' },
-    ],
+    tagline: 'Malla de microservicios políglotas (Python, Node.js, TypeScript, Nginx) desplegada en Kubernetes.',
+    problem: 'Migrar de monolito a microservicios exige probar la integración real de servicios en distintos lenguajes dentro de un clúster, no solo en local.',
+    solution: 'Arquitectura de 5 servicios — frontend estático, API gateway (TS/Express), auth (FastAPI), analytics y data processor (Flask) — orquestados en Kubernetes con Nginx Ingress.',
+    result: 'Clúster completo operativo: tráfico enrutado por Ingress y comunicaciones entre servicios verificadas extremo a extremo.',
+    stack: ['Kubernetes', 'Docker', 'Python', 'FastAPI', 'Node.js', 'TypeScript', 'Express', 'Nginx'],
+    links: [{ icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/poly-k8' }],
   },
   {
     id: 'docker',
     title: 'Docker Implement',
     category: 'devops',
     image: 'img/docker.webp',
-    links: [
-      { icon: 'github', url: 'https://github.com/iCruzDaniel/evaluacionDocker' },
-    ],
+    tagline: 'Aplicación Flask contenerizada, servida con Nginx y orquestada con Docker Compose.',
+    problem: 'Pasar de correr apps en local a entornos reproducibles exige dominar el ciclo completo de contenerización y orquestación.',
+    solution: 'Implementación de una app Flask en Docker expuesta por Nginx, levantada con un solo comando docker-compose up.',
+    result: 'Entorno reproducible con un comando y base reutilizable para despliegues más complejos.',
+    stack: ['Docker', 'Docker Compose', 'Flask', 'Nginx'],
+    links: [{ icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/evaluacionDocker' }],
   },
   {
     id: 'proyecto-ti',
     title: 'Proyecto TI',
     category: 'devops',
     image: 'img/infraestructure-ti.webp',
-    links: [
-      { icon: 'github', url: 'https://github.com/iCruzDaniel/proyecto-TI' },
-    ],
+    tagline: 'Despliegue automatizado de la app universitaria YaperGo en DigitalOcean con Terraform y Ansible.',
+    problem: 'Llevar YaperGo a producción requería pasos manuales, frágiles y no reproducibles desde cualquier máquina.',
+    solution: 'Automatización completa del despliegue en DigitalOcean: Terraform para infraestructura y Ansible para configuración, usable desde Ubuntu, WSL2 o una Raspberry Pi.',
+    result: 'Despliegue reproducible desde cualquier SO, documentado paso a paso para el equipo.',
+    stack: ['Terraform', 'Ansible', 'Docker', 'DigitalOcean'],
+    links: [{ icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/proyecto-TI' }],
   },
 
   // ─── AI SOLUTIONS ───
-    {
+  {
     id: 'roomie',
     title: 'Roomie',
     category: 'ai',
     image: 'img/roomie.webp',
+    tagline: 'Recomendador de compañeros de piso por compatibilidad, construido para una plataforma real de habitaciones en alquiler.',
+    problem: 'Habitacion.com asignaba manualmente inquilinos compatibles: un proceso lento, subjetivo y que no escala con ~12.000 perfiles activos.',
+    solution: 'Sistema de matching por similitud (producto punto sobre perfiles codificados) que filtra los N candidatos más compatibles para un piso y los presenta con visualizaciones interactivas en tiempo real.',
+    result: 'Evaluado sobre 12.000 perfiles reales; reduce a segundos una decisión que antes era manual y subjetiva.',
+    stack: ['Python', 'scikit-learn', 'Streamlit', 'Plotly', 'SQLite', 'Docker'],
     links: [
-      { icon: 'globe', url: 'https://roomie-icruzdaniel.streamlit.app' },
-      { icon: 'github', url: 'https://github.com/iCruzDaniel/Roomie' },
+      { icon: 'globe', label: 'Ver demo', url: 'https://roomie-icruzdaniel.streamlit.app' },
+      { icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/Roomie' },
     ],
   },
   {
@@ -69,31 +99,41 @@ export const projects = [
     title: 'CriterIA',
     category: 'ai',
     image: 'img/criteria.webp',
-    links: [
-      { icon: 'github', url: 'https://github.com/iCruzDaniel/CriterIA' },
-    ],
+    tagline: 'Asistente RAG para abogados: consulta contratos en lenguaje natural y recibe respuestas con la cita textual exacta.',
+    problem: 'Buscar cláusulas en contratos largos toma horas, y los documentos legales confidenciales no pueden enviarse a servicios externos en la nube.',
+    solution: 'RAG 100% local y contenerizado: carga de PDFs con chunking semántico, consultas en español, respuestas con cita textual (página y sección), autenticación JWT multi-usuario.',
+    result: 'Sistema de escritorio completo que responde con la cita exacta del contrato sin que los datos salgan de la máquina.',
+    stack: ['React', 'FastAPI', 'LlamaIndex', 'ChromaDB', 'Docker', 'Ollama'],
+    links: [{ icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/CriterIA' }],
   },
   {
     id: 'phiusiil',
     title: 'PhiUSIIL Solution',
     category: 'ai',
     image: 'img/phiusiil.webp',
-    links: [
-      { icon: 'github', url: 'https://github.com/iCruzDaniel/Solucion-PhiUSIIL-URL-Phishing' },
-    ],
+    tagline: 'Modelo de machine learning para detectar URLs de phishing antes de que engañen al usuario.',
+    problem: 'Las listas negras no alcanzan: las URLs de phishing nuevas se crean por miles al día y evaden los filtros estáticos en minutos.',
+    solution: 'Clasificador de URLs entrenado sobre el dataset PhiUSIIL, que detecta sitios de phishing por características de la propia URL.',
+    result: 'Clasificador entrenado y evaluado sobre el dataset de referencia PhiUSIIL.',
+    stack: ['Python', 'Machine Learning'],
+    links: [],
   },
 
-
   // ─── APPS WEB & LANDING PAGES ───
-    {
+  {
     id: 'openwaitlist',
     title: 'OpenWaitlist',
     category: 'web',
     image: 'img/open-waitlist.webp',
+    tagline: 'Backend de waitlist y gestión de leads self-hosted para todas tus landing pages.',
+    problem: 'Cada landing page terminaba con su formulario "único": 15 formularios, 12 bases de datos y 0 visibilidad de los leads capturados.',
+    solution: 'Un solo backend FastAPI con panel admin en React: recibe leads de todas las landings (crea la waitlist sobre la marcha, con JSON libre), exige JWT para leer y exporta a CSV. Corre sobre SQLite, Postgres o Upstash Redis.',
+    result: 'Demo en vivo en Vercel (serverless con Upstash) y paquete publicado en Docker Hub.',
+    stack: ['FastAPI', 'React', 'SQLite', 'PostgreSQL', 'Upstash Redis', 'Docker'],
     links: [
-      { icon: 'globe', url: 'https://open-waitlist-one.vercel.app/' },
-      { icon: 'user', url: 'https://open-waitlist-one.vercel.app/admin?email=admin%40demo.com&pass=elAdmin123' },
-      { icon: 'github', url: 'https://github.com/iCruzDaniel/open-waitlist' },
+      { icon: 'globe', label: 'Ver demo', url: 'https://open-waitlist-one.vercel.app/' },
+      { icon: 'user', label: 'Demo admin', url: 'https://open-waitlist-one.vercel.app/admin?email=admin%40demo.com&pass=elAdmin123' },
+      { icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/open-waitlist' },
     ],
   },
   {
@@ -101,20 +141,28 @@ export const projects = [
     title: 'Fast Foody',
     category: 'web',
     image: 'img/fast-foody.webp',
+    tagline: 'Gestión de pedidos para restaurante de comida rápida, con roles y despliegue CI/CD automático.',
+    problem: 'Un restaurante gestionaba pedidos en papel o por chat: sin catálogo central, errores de comunicación y cero visibilidad del estado de cada orden.',
+    solution: 'App fullstack: catálogo de productos, órdenes con ciclo completo (creación → entrega/cancelación), autenticación por roles (cliente/staff/admin) y despliegue automático con cada push a main.',
+    result: '114 tests automatizados y CI/CD que redespliega frontend (GitHub Pages) y API (Vercel) en cada push.',
+    stack: ['React', 'TypeScript', 'Express', 'Prisma', 'PostgreSQL', 'Upstash Redis', 'Tailwind', 'Vitest'],
     links: [
-      { icon: 'globe', url: 'https://icruzdaniel.github.io/fast-foody' },
-      { icon: 'user', url: 'https://icruzdaniel.github.io/fast-foody/login' },
-      { icon: 'github', url: 'https://github.com/iCruzDaniel/fast-foody' },
+      { icon: 'globe', label: 'Ver demo', url: 'https://icruzdaniel.github.io/fast-foody' },
+      { icon: 'user', label: 'Demo staff', url: 'https://icruzdaniel.github.io/fast-foody/login' },
+      { icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/fast-foody' },
     ],
   },
   {
-  id: 'referio',
-  title: 'ReferIO',
-  category: 'web',
-  image: 'img/referio.webp',
-  links: [
-    { icon: 'github', url: 'https://github.com/iCruzDaniel/refer-io' },
-  ],
+    id: 'referio',
+    title: 'ReferIO',
+    category: 'web',
+    image: 'img/referio.webp',
+    tagline: 'Plataforma de programas de referidos con cupones de descuento y control de acceso por jerarquía.',
+    problem: 'Las empresas pierden el control de los descuentos que otorgan los empleados por referidos: cupones que exceden el límite de su rol y sin rastreo de la conversión.',
+    solution: 'Sistema Symfony con roles jerárquicos (Admin → Manager → Supervisor → Employee) que valida cada cupón contra el límite del rol y rastrea el ciclo completo del referido: pendiente → contactado → convertido.',
+    result: 'MVP funcional con 4 niveles de rol, validación automática de permisos y trail de auditoría de cupones.',
+    stack: ['Symfony', 'PHP', 'MySQL', 'Bootstrap', 'Docker', 'PHPUnit'],
+    links: [{ icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/refer-io' }],
   },
   {
     id: 'axioma-energy',
@@ -123,18 +171,24 @@ export const projects = [
     image: 'img/axioma-energy.webp',
     fit: 'contain',
     bg: '#ffffff',
-    links: [
-      { icon: 'globe', url: 'https://axiomaenergy.co' },
-    ],
+    tagline: 'Sitio web corporativo para una consultora de energía en Latinoamérica.',
+    problem: 'La consultora no tenía presencia web que comunicara su oferta de servicios a clientes corporativos.',
+    solution: 'Landing corporativa con identidad de marca, servicios y contacto, publicada en producción.',
+    result: 'Sitio en producción y operando como canal principal de presentación de la marca.',
+    stack: ['HTML', 'CSS', 'JavaScript'],
+    links: [{ icon: 'globe', label: 'Ver sitio', url: 'https://axiomaenergy.co' }],
   },
   {
     id: 'aerolab',
     title: 'AeroLab Cartagena',
     category: 'web',
     image: 'img/aerolab.webp',
-    links: [
-      { icon: 'globe', url: 'https://aerolabcartagena-tj6cb.ondigitalocean.app' },
-    ],
+    tagline: 'Sitio web de la primera asociación de aeromodelismo de Cartagena.',
+    problem: 'Un grupo de estudiantes fundó la primera asociación de aeromodelismo de la ciudad y no tenía cómo mostrar sus proyectos ni sumar nuevos integrantes.',
+    solution: 'Landing institucional con portafolio de proyectos, sección sobre nosotros y formulario de contacto, desplegada para la asociación.',
+    result: 'Primer canal de presencia digital y captación de miembros de la asociación.',
+    stack: ['HTML', 'CSS', 'JavaScript'],
+    links: [{ icon: 'globe', label: 'Ver sitio', url: 'https://aerolabcartagena-tj6cb.ondigitalocean.app' }],
   },
   {
     id: 'ggc',
@@ -143,48 +197,37 @@ export const projects = [
     image: 'img/logo-GGC-blanco.webp',
     fit: 'contain',
     bg: 'var(--color-grey-6)',
-    links: [
-      { icon: 'globe', url: 'https://ggc.aluez.com/' },
-    ],
+    tagline: 'Sitio corporativo de consultora de energía y software para mercados latinoamericanos.',
+    problem: 'GGC, firma de consultoría en optimización estocástica y analítica para mercados energéticos, necesitaba comunicar servicios especializados a clientes corporativos.',
+    solution: 'Web corporativa con servicios (análisis regulatorio, simulación, modelos financieros, data analytics y desarrollo de software) y presencia de marca.',
+    result: 'Sitio en producción como presentación oficial de servicios de la firma.',
+    stack: ['HTML', 'CSS', 'JavaScript'],
+    links: [{ icon: 'globe', label: 'Ver sitio', url: 'https://ggc.aluez.com/' }],
   },
-  /*
-  {
-    id: 'yapergo',
-    title: 'YaperGoUTB',
-    category: 'web',
-    image: 'img/yapergo.webp',
-    links: [
-      { icon: 'github', url: 'https://github.com/ISCOUTB/AH-YaperGoUTB' },
-    ],
-  },*/
 
   // ─── MECHATRONICS ───
-  /*{
-    id: 'sihni',
-    title: 'SIHNI (En construcción)',
-    category: 'mechatronics',
-    image: 'img/not-available.webp',
-    bg: '#fff',
-    links: [
-      { icon: 'wrench', url: '#' },
-    ],
-  },*/
   {
     id: 'robotsoccers',
     title: 'RobotSoccers',
     category: 'mechatronics',
     image: 'img/robotsoccers.webp',
-    links: [
-      { icon: 'github', url: 'https://github.com/iCruzDaniel/RobotSoccers' },
-    ],
+    tagline: 'Robots futbolistas con ruedas omnidireccionales, visión artificial y control inteligente.',
+    problem: 'El semillero UTBot necesitaba una plataforma física y de software para entrenar a nuevos integrantes en robótica competitiva de RobotSoccer.',
+    solution: 'Robots con ruedas omnidireccionales que integran visión artificial (percepción del entorno y del balón), control inteligente autónomo y una HMI para configurar y monitorear el partido.',
+    result: 'Plataforma diseñada para competencias de robótica de Cartagena, capaz de jugar sin intervención humana durante el partido.',
+    stack: ['Python', 'Arduino', 'Qt', 'Visión artificial'],
+    links: [{ icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/RobotSoccers' }],
   },
   {
     id: 'hexplorer',
     title: 'HEX-PLORER',
     category: 'mechatronics',
     image: 'img/hexplorer.webp',
-    links: [
-      { icon: 'github', url: 'https://github.com/iCruzDaniel/HEX-PLORER' },
-    ],
+    tagline: 'Hexápodo teledirigido para mapear y detectar condiciones irregulares en zonas de difícil acceso.',
+    problem: 'Inspeccionar terrenos irregulares o peligrosos pone en riesgo a las personas y exige equipos costosos.',
+    solution: 'Prototipo de hexápodo con control remoto Bluetooth, HMI de escritorio para análisis de sensores, ~30 min de autonomía y detección de obstáculos en radio de 80 cm.',
+    result: 'Prototipo funcional de mapeo y teledetección remota, con obstáculos detectados horizontalmente a 80 cm del centroide.',
+    stack: ['Java', 'Arduino', 'Bluetooth'],
+    links: [{ icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/HEX-PLORER' }],
   },
 ];

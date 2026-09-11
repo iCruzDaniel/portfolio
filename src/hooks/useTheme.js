@@ -40,17 +40,23 @@ export default function useTheme() {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  const toggleTheme = useCallback(() => {
-    setIsLightMode((prev) => {
-      const next = !prev;
-      try {
-        localStorage.setItem('theme', next ? 'light' : 'dark');
-      } catch (_) {
-        /* private browsing — ignore */
-      }
-      return next;
-    });
+  const setTheme = useCallback((light) => {
+    const next = !!light;
+    // Aplicación síncrona de la clase: el AnimatedThemeToggler anima con
+    // startViewTransition y el snapshot "new" se captura dentro del callback,
+    // así que el class debe estar en el DOM antes del siguiente paint.
+    document.body.classList.toggle('light-mode', next);
+    try {
+      localStorage.setItem('theme', next ? 'light' : 'dark');
+    } catch (_) {
+      /* private browsing — ignore */
+    }
+    setIsLightMode(next);
   }, []);
 
-  return { isLightMode, toggleTheme };
+  const toggleTheme = useCallback(() => {
+    setTheme(!isLightMode);
+  }, [isLightMode, setTheme]);
+
+  return { isLightMode, setTheme, toggleTheme };
 }

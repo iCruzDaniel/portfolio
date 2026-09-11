@@ -4,7 +4,7 @@ import useTheme from './hooks/useTheme';
 import useNavigation from './hooks/useNavigation';
 
 import Navigation from './components/layout/Navigation';
-import ThemeToggle from './components/layout/ThemeToggle';
+import { AnimatedThemeToggler } from './components/ui/animated-theme-toggler';
 import CertPopup from './components/shared/CertPopup';
 
 import HomeSection from './components/sections/HomeSection';
@@ -13,7 +13,7 @@ import PortfolioSection from './components/sections/PortfolioSection';
 import ContactSection from './components/sections/ContactSection';
 
 export default function App() {
-  const { toggleTheme } = useTheme();
+  const { isLightMode, setTheme } = useTheme();
   const { activeSection, navigateTo, activePopup, openPopup, closePopup } = useNavigation();
 
   return (
@@ -30,7 +30,12 @@ export default function App() {
       </main>
 
       <Navigation activeSection={activeSection} onNavigate={navigateTo} />
-      <ThemeToggle onToggle={toggleTheme} />
+      <AnimatedThemeToggler
+        theme={isLightMode ? 'light' : 'dark'}
+        onThemeChange={(next) => setTheme(next === 'light')}
+        className="theme-btn"
+        variant="circle"
+      />
       <CertPopup skillName={activePopup} onClose={closePopup} />
     </>
   );
