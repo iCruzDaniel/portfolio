@@ -170,10 +170,10 @@ export default function PortfolioItem({
                   rel="noopener noreferrer"
                   className="main-btn ltr"
                 >
-                  <span className="btn-text">{link.label}</span>
                   <span className="btn-icon">
                     <Icon name={link.icon} />
                   </span>
+                  <span className="btn-text">{link.label}</span>
                 </a>
               ))}
             </div>
