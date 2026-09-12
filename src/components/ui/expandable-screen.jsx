@@ -133,44 +133,46 @@ export function ExpandableScreenContent({
   return typeof document === 'undefined'
     ? null
     : createPortal(
-        <AnimatePresence initial={false}>
-          {isExpanded && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-2">
-              {/* Morphing background with shared layoutId */}
-              <motion.div
-                layout
-                layoutId={layoutId}
-                transition={{ duration: animationDuration }}
-                style={{ borderRadius: contentRadius }}
-                className={`relative flex h-full w-full overflow-y-auto transform-gpu will-change-transform ${className}`}
-              >
+        <>
+          <AnimatePresence initial={false}>
+            {isExpanded && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-2">
+                {/* Morphing background with shared layoutId */}
                 <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.15, duration: 0.4 }}
-                  className="relative z-20 w-full"
+                  layout
+                  layoutId={layoutId}
+                  transition={{ duration: animationDuration }}
+                  style={{ borderRadius: contentRadius }}
+                  className={`relative flex h-full w-full overflow-y-auto transform-gpu will-change-transform ${className}`}
                 >
-                  {children}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.15, duration: 0.4 }}
+                    className="relative z-20 w-full"
+                  >
+                    {children}
+                  </motion.div>
                 </motion.div>
-              </motion.div>
+              </div>
+            )}
+          </AnimatePresence>
 
-              {showCloseButton && (
-                <motion.button
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.25, duration: 0.25 }}
-                  onClick={collapse}
-                  className={`absolute right-4 top-4 z-30 flex h-10 w-10 items-center justify-center rounded-full border border-border/40 bg-background/80 text-foreground backdrop-blur-sm transition-colors hover:bg-background ${
-                    closeButtonClassName || ''
-                  }`}
-                  aria-label="Close"
-                >
-                  <X className="h-5 w-5" />
-                </motion.button>
-              )}
-            </div>
+          {showCloseButton && isExpanded && (
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.25, duration: 0.25 }}
+              onClick={collapse}
+              className={`fixed right-4 top-4 z-[60] flex h-10 w-10 items-center justify-center rounded-full border border-border/40 bg-background/80 text-foreground backdrop-blur-sm transition-colors hover:bg-background ${
+                closeButtonClassName || ''
+              }`}
+              aria-label="Close"
+            >
+              <X className="h-5 w-5" />
+            </motion.button>
           )}
-        </AnimatePresence>,
+        </>,
         document.body
       );
 }

@@ -168,10 +168,12 @@ export default function PortfolioItem({
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-cta px-5 py-2.5 text-sm font-semibold text-cta-foreground transition-colors hover:bg-cta/90"
+                  className="main-btn"
                 >
-                  <Icon name={link.icon} className="h-4 w-4" />
-                  <span>{link.label}</span>
+                  <span className="btn-text">{link.label}</span>
+                  <span className="btn-icon">
+                    <Icon name={link.icon} />
+                  </span>
                 </a>
               ))}
             </div>

@@ -738,6 +738,7 @@ section {
     cursor: pointer;
     padding: 0;
     text-decoration: none;
+    isolation: isolate;
     .btn-text { padding: 0 2rem; }
     .btn-icon {
         background-color: var(--color-secondary);
