@@ -78,7 +78,7 @@ section {
     position: absolute;
     left: 0;
     top: 0;
-    padding: 3rem 18rem;
+    padding: 3rem 18rem 9rem;
 }
 
 .container {
@@ -132,6 +132,19 @@ section {
         background-color: var(--color-secondary);
         transition: all .4s ease-in-out;
         i, svg { color: var(--color-white); }
+    }
+}
+
+//Dock flotante (gradient-button-group) - reemplaza a .controls
+.gradient-dock {
+    position: fixed;
+    z-index: 40;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    & > * {
+        pointer-events: auto;
     }
 }
 
