@@ -768,6 +768,18 @@ section {
         }
     }
 
+    /* Variante izquierda→derecha: el relleno verde entra desde la izquierda */
+    &.ltr {
+        &::before {
+            right: auto;
+            left: 0;
+            transform: translateX(-100%);
+        }
+        &:hover::before {
+            transform: translateX(0);
+        }
+    }
+
 }
 
 .main-title {

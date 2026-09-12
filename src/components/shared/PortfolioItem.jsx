@@ -168,7 +168,7 @@ export default function PortfolioItem({
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="main-btn"
+                  className="main-btn ltr"
                 >
                   <span className="btn-text">{link.label}</span>
                   <span className="btn-icon">
