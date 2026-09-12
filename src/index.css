@@ -89,6 +89,19 @@
       transform: rotate(360deg);
     }
   }
+  /* Pulso sonar del botón X de cierre: onda verde que irradia desde el centro */
+  --animate-sonar: sonar 2.2s ease-out infinite;
+  @keyframes sonar {
+    0% {
+      transform: scale(1);
+      opacity: 0.55;
+    }
+    70%,
+    100% {
+      transform: scale(1.9);
+      opacity: 0;
+    }
+  }
 }
 
 /* Preflight suave: no resetear el diseño SCSS global, solo heredar */
