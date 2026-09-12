@@ -152,20 +152,22 @@ export function ExpandableScreenContent({
                 >
                   {children}
                 </motion.div>
-
-                {showCloseButton && (
-                  <motion.button
-                    onClick={collapse}
-                    className={`absolute right-6 top-6 z-30 flex h-10 w-10 items-center justify-center rounded-full transition-colors ${
-                      closeButtonClassName ||
-                      'text-primary-foreground bg-transparent hover:bg-primary-foreground/10'
-                    }`}
-                    aria-label="Close"
-                  >
-                    <X className="h-5 w-5" />
-                  </motion.button>
-                )}
               </motion.div>
+
+              {showCloseButton && (
+                <motion.button
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.25, duration: 0.25 }}
+                  onClick={collapse}
+                  className={`absolute right-4 top-4 z-30 flex h-10 w-10 items-center justify-center rounded-full border border-border/40 bg-background/80 text-foreground backdrop-blur-sm transition-colors hover:bg-background ${
+                    closeButtonClassName || ''
+                  }`}
+                  aria-label="Close"
+                >
+                  <X className="h-5 w-5" />
+                </motion.button>
+              )}
             </div>
           )}
         </AnimatePresence>,
