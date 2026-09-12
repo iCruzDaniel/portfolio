@@ -78,7 +78,7 @@ section {
     position: absolute;
     left: 0;
     top: 0;
-    padding: 3rem 18rem 9rem;
+    padding: 3rem 18rem;
 }
 
 .container {
@@ -135,7 +135,7 @@ section {
     }
 }
 
-//Dock flotante (gradient-button-group) - reemplaza a .controls
+//Dock flotante (gradient-button-group) - SOLO mobile (≤600px, ver _media.scss)
 .gradient-dock {
     position: fixed;
     z-index: 40;
@@ -143,6 +143,7 @@ section {
     left: 50%;
     transform: translateX(-50%);
     pointer-events: none;
+    display: none;
     & > * {
         pointer-events: auto;
     }

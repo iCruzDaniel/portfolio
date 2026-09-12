@@ -5,35 +5,35 @@ import useTheme from "../../hooks/useTheme"
 import Icon from "../shared/Icon"
 import { cn } from "@/lib/utils"
 
-// Theme-aware color configurations
+// Theme-aware color configurations (paleta del sitio: greys + secondary verde)
 const themes = {
   dark: {
-    bg: "#111113",
-    containerBg: "#141416",
-    underLayerBg: "#101012",
-    borderFrom: "#0a0a0b",
-    borderVia: "#1a1a1c",
-    borderTo: "#252527",
-    wellBg: "#0a0a0b",
-    innerRingBg: "#0c0c0d",
-    buttonBg: "#111113",
+    bg: "#191d2b", // --color-primary
+    containerBg: "#2a2e35", // --color-grey-5
+    underLayerBg: "#12161f",
+    borderFrom: "#0d1119",
+    borderVia: "#1a2029",
+    borderTo: "#2a2e35",
+    wellBg: "#12161f",
+    innerRingBg: "#10141c",
+    buttonBg: "#2a2e35",
     textActive: "text-white",
-    textInactive: "text-[#6b6b6d] hover:text-zinc-400",
-    iconColor: "text-white hover:text-zinc-300",
+    textInactive: "text-[#b2becd] hover:text-zinc-100", // --color-grey-2
+    iconColor: "text-[#b2becd] hover:text-white",
   },
   light: {
-    bg: "#f5f5f7",
+    bg: "#ffffff",
     containerBg: "#ffffff",
-    underLayerBg: "#e8e8ea",
-    borderFrom: "#d0d0d5",
-    borderVia: "#e5e5e8",
-    borderTo: "#f0f0f2",
-    wellBg: "#e0e0e3",
-    innerRingBg: "#d8d8db",
-    buttonBg: "#f0f0f2",
-    textActive: "text-zinc-900",
-    textInactive: "text-zinc-400 hover:text-zinc-600",
-    iconColor: "text-zinc-700 hover:text-zinc-900",
+    underLayerBg: "#dce0e4", // --color-grey-5 (light)
+    borderFrom: "#b7bfc7",
+    borderVia: "#d3d8de",
+    borderTo: "#e2e6ea",
+    wellBg: "#dce0e4",
+    innerRingBg: "#d2d8de",
+    buttonBg: "#ffffff",
+    textActive: "text-[#191d2b]",
+    textInactive: "text-[#6c7983] hover:text-[#454e56]", // --color-grey-3/4
+    iconColor: "text-[#454e56] hover:text-[#1e9b54]", // --color-grey-4 / secondary
   },
 }
 
@@ -109,11 +109,11 @@ export function GradientButtonGroup({
             className="absolute inset-0 z-0 rounded-[28px] transition-colors duration-300"
             style={{
               background: isDarkMode
-                ? "linear-gradient(180deg, #141416 0%, #111113 50%, #0e0e10 100%)"
-                : "linear-gradient(180deg, #d1d1d6 0%, #cacad0 50%, #c3c3c9 100%)",
+                ? "linear-gradient(180deg, #1a1f29 0%, #161b24 50%, #12161e 100%)"
+                : "linear-gradient(180deg, #c9cfd6 0%, #c2c8cf 50%, #bac1c8 100%)",
               boxShadow: isDarkMode
-                ? "inset 0 2px 8px rgba(0,0,0,0.6), inset 0 1px 2px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.04)"
-                : "inset 0 2px 6px rgba(0,0,0,0.1), inset 0 0 0 1px rgba(0,0,0,0.08), 0 1px 0 rgba(255,255,255,0.55)",
+                ? "inset 0 2px 8px rgba(0,0,0,0.65), inset 0 1px 2px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.04)"
+                : "inset 0 2px 6px rgba(0,0,0,0.12), inset 0 0 0 1px rgba(0,0,0,0.08), 0 1px 0 rgba(255,255,255,0.55)",
             }}
           />
 
@@ -123,9 +123,9 @@ export function GradientButtonGroup({
             <div
               className="absolute -inset-[4px] rounded-[28px] border-[1px] transition-colors duration-300"
               style={{
-                background: isDarkMode ? "#0a0a0b" : "#d8d8db",
+                background: isDarkMode ? "#0d1119" : "#d6dbe0",
                 borderColor: isDarkMode
-                  ? "rgba(255,255,255,0.05)"
+                  ? "rgba(255,255,255,0.06)"
                   : "rgba(0,0,0,0.08)",
               }}
             />
@@ -135,10 +135,10 @@ export function GradientButtonGroup({
               className="relative inline-flex items-center gap-3 rounded-[24px] p-1.5 transition-colors duration-300"
               style={{
                 background: isDarkMode
-                  ? "linear-gradient(180deg, #1c1c1f 0%, #17171a 52%, #131316 100%)"
-                  : "linear-gradient(180deg, #ffffff 0%, #fefeff 52%, #fcfcfe 100%)",
+                  ? "linear-gradient(180deg, #2e353f 0%, #282f38 52%, #232a33 100%)"
+                  : "linear-gradient(180deg, #ffffff 0%, #fdfdfe 52%, #fafbfc 100%)",
                 borderTop: isDarkMode
-                  ? "1px solid rgba(255,255,255,0.1)"
+                  ? "1px solid rgba(255,255,255,0.08)"
                   : "1px solid rgba(255,255,255,1)",
                 boxShadow: isDarkMode
                   ? "none"
@@ -152,27 +152,27 @@ export function GradientButtonGroup({
                 const wellStyle = isDarkMode
                   ? {
                       background:
-                        "linear-gradient(180deg, #0a0a0c 0%, #0e0e10 50%, #0c0c0e 100%)",
+                        "linear-gradient(180deg, #12161f 0%, #161b24 50%, #13171f 100%)",
                       boxShadow:
-                        "inset 0 2px 6px rgba(0,0,0,0.9), inset 0 0 4px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.05)",
+                        "inset 0 2px 6px rgba(0,0,0,0.85), inset 0 0 4px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.06)",
                     }
                   : {
                       background:
-                        "linear-gradient(180deg, #e0e0e3 0%, #d8d8db 50%, #d4d4d7 100%)",
+                        "linear-gradient(180deg, #d6dbe0 0%, #cdd3d9 50%, #c9cfd6 100%)",
                       boxShadow:
                         "inset 0 2px 6px rgba(0,0,0,0.12), inset 0 0 4px rgba(0,0,0,0.06), 0 1px 0 rgba(255,255,255,0.9)",
                     }
 
                 const innerGapStyle = isDarkMode
                   ? {
-                      background: "#0a0a0d",
+                      background: "#10141c",
                       boxShadow:
-                        "inset 0 1px 3px rgba(0,0,0,0.9), inset 0 0 2px rgba(0,0,0,0.6)",
+                        "inset 0 1px 3px rgba(0,0,0,0.85), inset 0 0 2px rgba(0,0,0,0.6)",
                     }
                   : {
-                      background: "#e8e8ea",
+                      background: "#dce0e4",
                       boxShadow:
-                        "inset 0 1px 3px rgba(0,0,0,0.18), inset 0 0 2px rgba(0,0,0,0.1)",
+                        "inset 0 1px 3px rgba(0,0,0,0.16), inset 0 0 2px rgba(0,0,0,0.08)",
                     }
 
                 return (
@@ -208,9 +208,9 @@ export function GradientButtonGroup({
                           }}
                         />
 
-                        {/* Gold ring container */}
+                        {/* Green ring container */}
                         <motion.span
-                          layoutId="active-gold-ring"
+                          layoutId="active-green-ring"
                           className="absolute inset-[3px] overflow-hidden rounded-[15px]"
                           onLayoutAnimationComplete={() =>
                             setOverlayReadyId(item.id)
@@ -221,17 +221,17 @@ export function GradientButtonGroup({
                             damping: 30,
                           }}
                         >
-                          {/* Spinning gradient ring */}
+                          {/* Spinning gradient ring (secondary verde del sitio) */}
                           <span
-                            className="absolute inset-[-60%] origin-center will-change-transform animate-gold-spin"
+                            className="absolute inset-[-60%] origin-center will-change-transform animate-green-spin"
                             style={{
                               background:
-                                "conic-gradient(from 220deg, #6FF7CC 0%, #44EBCF 16%, #ADFA1F 33%, #C8FF5A 50%, #89F5A0 66%, #37D8C5 82%, #6FF7CC 100%)",
+                                "conic-gradient(from 220deg, #27AE60 0%, #2FCC71 16%, #6BE79D 33%, #A9F0C4 50%, #6BE79D 66%, #2FCC71 82%, #27AE60 100%)",
                             }}
                           />
                         </motion.span>
 
-                        {/* Inner gap - thin dark channel between gold and button */}
+                        {/* Inner gap - thin dark channel between ring and button */}
                         <motion.span
                           layoutId="active-inner-ring"
                           className="absolute inset-[6px] rounded-[12px] transition-colors duration-300"

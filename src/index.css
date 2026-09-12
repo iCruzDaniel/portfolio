@@ -82,9 +82,9 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  /* Anillo dorado giratorio del gradient-button-group */
-  --animate-gold-spin: gold-spin 4s linear infinite;
-  @keyframes gold-spin {
+  /* Anillo verde giratorio del gradient-button-group (secondary del sitio) */
+  --animate-green-spin: green-spin 4s linear infinite;
+  @keyframes green-spin {
     to {
       transform: rotate(360deg);
     }

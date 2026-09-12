@@ -17,8 +17,7 @@
         padding: 0 !important;
     }
     .theme-btn{
-        width: 50px;
-        height: 50px;
+        display: none;
     }
     .header-content{
         grid-template-columns: repeat(1, 1fr);
@@ -46,18 +45,13 @@
         margin-bottom: 2rem;
     }
 
+    /* Dock mobile reemplaza la barra inferior de .controls */
     .controls{
-        top: auto;
-        bottom: 0;
-        flex-direction: row;
-        justify-content: center;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        background-color: var(--color-grey-5);
-        .control{
-            margin: 1rem .3rem;
-        }
+        display: none;
+    }
+
+    .gradient-dock{
+        display: flex;
     }
 
     .about-container{
@@ -164,16 +158,9 @@
     }
 }
 
-/* ── Desktop hero: lift the portrait clear of the floating dock ── */
-@media screen and (min-width: 971px) {
-    .header-content {
-        padding-bottom: 8rem;
-    }
-}
-
 @media screen and (max-width:1432px){
     .container{
-        padding: 7rem 11rem 9rem;
+        padding: 7rem 11rem;
     }
 
     .contact-content-con{
@@ -304,14 +291,14 @@
 
 @media screen and (max-width:970px){
     .container{
-        padding: 7rem 6rem 9rem;
+        padding: 7rem 6rem;
     }
     .about-container .left-about{
         padding-right: 0rem;
     }
     .header-content{
         grid-template-columns: repeat(1, 1fr);
-        padding-bottom: 8rem;
+        padding-bottom: 6rem;
     }
 
     .left-header{
@@ -319,7 +306,7 @@
             display: none;
         }
         .image{
-            width: 82% !important;
+            width: 90% !important;
             margin: 0 auto !important;
             
         }
@@ -339,7 +326,7 @@
 }
 @media screen and (max-width:700px){
     .container{
-        padding: 7rem 3rem 9rem;
+        padding: 7rem 3rem;
     }
     .about-stats .progress-bars{
         grid-template-columns: repeat(1, 1fr);
