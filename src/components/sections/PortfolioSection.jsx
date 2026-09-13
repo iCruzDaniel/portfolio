@@ -7,7 +7,7 @@ import { projects, projectCategories } from '../../data/projects';
 export default function PortfolioSection({ isActive, onNavigate }) {
   return (
     <Section id="portfolio" isActive={isActive}>
-      <MainTitle prefix="My" highlighted="Portfolio" bgText="My Work" />
+      <MainTitle prefix="My" highlighted="Portfolio" bgText="My Work" isActive={isActive} />
 
       <p className="port-text">
         Here is some of my work that I've done in various programming languages.

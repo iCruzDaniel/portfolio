@@ -8,7 +8,7 @@ export default function ContactSection({ isActive }) {
   return (
     <Section id="contact" isActive={isActive}>
       <div className="contact-container">
-        <MainTitle prefix="Contact" highlighted="Me" bgText="Contact" />
+        <MainTitle prefix="Contact" highlighted="Me" bgText="Contact" isActive={isActive} />
 
         <div className="contact-content-con">
           <div className="left-contact">
@@ -18,9 +18,9 @@ export default function ContactSection({ isActive }) {
               potential collaborations.
             </p>
 
-            <div className="contact-info">
+            <div className="contact-info" key={isActive ? 'contact-active' : 'contact-idle'}>
               {contactInfo.map((item, i) => (
-                <ContactItem key={i} {...item} />
+                <ContactItem key={i} {...item} startDelay={i * 0.35} />
               ))}
             </div>
 

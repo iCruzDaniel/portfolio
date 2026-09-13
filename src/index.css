@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 /* ─── Tokens shadcn cult-ui mapeados a la paleta SCSS existente ─── */
 /* Dark mode (por defecto, body sin .light-mode)                          */
 :root {
@@ -102,7 +104,16 @@
       opacity: 0;
     }
   }
-}
+  --animate-blink-cursor: blink-cursor 1.2s step-end infinite
+;
+  @keyframes blink-cursor {
+  0%, 49% {
+    opacity: 1;
+    }
+  50%, 100% {
+    opacity: 0;
+    }
+  }}
 
 /* Preflight suave: no resetear el diseño SCSS global, solo heredar */
 @layer base {

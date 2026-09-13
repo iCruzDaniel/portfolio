@@ -17,6 +17,8 @@ import {
   cutoutCardSurfaceClassName,
 } from '../ui/cutout-card';
 import { projectCategories } from '../../data/projects';
+import { getProjectImages } from '../../data/projectImages';
+import { LoadingCarousel } from '../ui/loading-carousel';
 
 const CATEGORY_LABELS = Object.fromEntries(
   projectCategories.map((c) => [c.id, c.title])
@@ -37,15 +39,29 @@ export default function PortfolioItem({
   solution,
   result,
   stack,
-  image,
   links,
   fit,
   bg,
   category,
 }) {
-  const imgStyle = { ...(fit ? { objectFit: fit } : {}), ...(bg ? { background: bg } : {}) };
+  const { presentation, slides } = getProjectImages(id);
+  const carouselImages = slides.length > 0 ? slides : [presentation].filter(Boolean);
+  const imgStyle = {
+    ...(fit ? { objectFit: fit, objectPosition: 'top' } : {}),
+    ...(bg ? { background: bg } : {}),
+  };
   const categoryLabel = CATEGORY_LABELS[category] || category;
   const categoryShort = CATEGORY_SHORT[category] || categoryLabel;
+
+  // const carouselTips = carouselImages.map((src, index) => ({
+  //   image: src,
+  //   text: `${title} — captura ${index + 1}`,
+  // }));
+
+  const carouselTips = carouselImages.map((src) => ({
+    image: src,
+    text: '',
+  }));
 
   return (
     <ExpandableScreen
@@ -57,7 +73,7 @@ export default function PortfolioItem({
       <ExpandableScreenTrigger className="h-full" surfaceClassName="bg-card border border-border/80">
         <CutoutCard className={cn(cutoutCardSurfaceClassName, 'h-full')}>
           <CutoutCardMedia className="aspect-[16/9]">
-            <CutoutCardImage src={image} alt={`${title} — captura`} fill style={imgStyle} />
+            <CutoutCardImage src={presentation} alt={`${title} — captura`} fill style={imgStyle} />
             <CutoutCardOverlay />
 
             <CutoutCardPin className="left-4 top-4">
@@ -110,11 +126,13 @@ export default function PortfolioItem({
           {tagline && <p className="mt-3 text-base text-tagline sm:text-lg">{tagline}</p>}
 
           <div className="mt-8 overflow-hidden rounded-2xl border border-border/50">
-            <img
-              src={image}
-              alt={`${title} — captura`}
-              className="max-h-[420px] w-full object-cover"
-              style={imgStyle}
+            <LoadingCarousel
+              tips={carouselTips}
+              showNavigation={carouselImages.length > 1}
+              showIndicators={carouselImages.length > 1}
+              showProgress={carouselImages.length > 1}
+              autoplayInterval={4500}
+              imageStyle={imgStyle}
             />
           </div>
 

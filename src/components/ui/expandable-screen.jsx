@@ -165,7 +165,7 @@ export function ExpandableScreenContent({
               whileHover={{ scale: 1.12 }}
               transition={{ delay: 0.25, duration: 0.25 }}
               onClick={collapse}
-              className={`group fixed right-4 top-4 z-[60] flex h-10 w-10 items-center justify-center rounded-full border border-primary/40 bg-background/80 text-foreground shadow-[0_0_12px_rgba(39,174,96,0.25)] backdrop-blur-sm transition-colors duration-300 hover:border-primary hover:bg-secondary hover:text-secondary-foreground hover:shadow-[0_0_20px_rgba(39,174,96,0.5)] ${
+              className={`group fixed right-4 top-4 z-[60] flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-primary/40 bg-background/80 text-foreground shadow-[0_0_12px_rgba(39,174,96,0.25)] backdrop-blur-sm transition-colors duration-300 hover:border-primary hover:bg-secondary hover:text-secondary-foreground hover:shadow-[0_0_20px_rgba(39,174,96,0.5)] ${
                 closeButtonClassName || ''
               }`}
               aria-label="Close"

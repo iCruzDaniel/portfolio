@@ -384,7 +384,10 @@ section {
             display: flex;
             align-items: center;
             justify-content: center;
-            i, svg { font-size: 1.3rem; }
+            i, svg {
+                font-size: 1.3rem;
+                color: #fff;
+            }
         }
         .tl-duration {
             padding: .2rem .6rem;
@@ -510,8 +513,34 @@ section {
 
     &:hover:not(.carousel-arrow--disabled) {
         background-color: var(--color-secondary);
-        color: var(--color-white);
+        color: #fff;
+        box-shadow: 0 0 20px rgba(39, 174, 96, 0.5);
         i, svg { color: inherit; }
+    }
+
+    /* Botones de avanzar/retroceder (solo habilitados): igual que la X de detalles —
+       la onda sonar la aporta el span .animate-sonar; aquí glow + escala + empuje del chevron */
+    &:not(.carousel-arrow--disabled) {
+        &:hover {
+            transform: translateY(-50%) scale(1.12);
+            box-shadow: 0 0 20px rgba(39, 174, 96, 0.5), var(--box-shadow-1);
+            svg {
+                transform: translateX(3px);
+                transition: transform .3s ease-out;
+            }
+        }
+        svg {
+            transition: transform .3s ease-out;
+            position: relative;
+        }
+    }
+
+    &--left:not(.carousel-arrow--disabled) {
+        &:hover {
+            svg {
+                transform: translateX(-3px);
+            }
+        }
     }
 
     &--disabled {
@@ -672,7 +701,7 @@ section {
                 transition: all .4s ease-in-out;
                 &:hover {
                     background-color: var(--color-secondary);
-                    i, svg { color: var(--color-primary); }
+                    i, svg { color: #fff; }
                 }
                 i, svg {
                     display: flex;
@@ -747,6 +776,8 @@ section {
         justify-content: center;
         border-radius: 50%;
         padding: 1rem;
+        color: #fff;
+        i, svg { color: inherit; }
     }
     &::before {
         content: '';
@@ -759,6 +790,8 @@ section {
     }
     &:hover {
         transition: all .4s ease-out;
+        color: #fff;
+        .btn-icon { color: #fff; }
         &::before {
             width: 100%;
             height: 100%;
@@ -900,29 +933,85 @@ body:not(.light-mode) .tech-item img[src*="aws-original"] {
 }
 .popup-close {
     position: absolute;
-    top: 16px; right: 16px;
-    background: var(--color-secondary);
-    color: var(--color-white);
-    border: none;
+    top: 12px; right: 12px;
+    background: transparent;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
     border-radius: 50%;
-    width: 32px; height: 32px;
-    font-size: 18px;
+    width: 40px; height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    transition: background 0.2s;
+    box-shadow: 0 0 12px rgba(39, 174, 96, 0.25);
+    transition: background .3s ease, color .3s ease, box-shadow .3s ease, transform .3s ease;
     &:hover {
-        background: var(--color-grey-4);
+        background: var(--color-secondary);
+        color: #fff;
+        box-shadow: 0 0 20px rgba(39, 174, 96, 0.5);
+        transform: scale(1.12);
+    }
+    svg {
+        width: 18px;
+        height: 18px;
+        position: relative;
     }
 }
 
 /* ─── Certificate Single ─── */
-.cert-single {
+.cert-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+
     img {
+        position: relative;
+        display: block;
         width: 100%;
         max-width: 800px;
         border-radius: 12px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
         background: var(--color-primary);
+    }
+}
+
+.cert-image-skeleton {
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background: linear-gradient(
+        110deg,
+        var(--color-grey-6) 8%,
+        var(--color-grey-5) 18%,
+        var(--color-grey-6) 33%
+    );
+    background-size: 200% 100%;
+    animation: cert-shimmer 1.4s linear infinite;
+}
+
+@keyframes cert-shimmer {
+    to {
+        background-position: -200% 0;
+    }
+}
+
+.cert-grid-item .cert-image-wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+
+    img {
+        border-radius: 0;
+        box-shadow: none;
+    }
+}
+
+.cert-list-item .cert-image-wrapper {
+    border-radius: 0;
+
+    img {
+        border-radius: 0;
+        box-shadow: none;
     }
 }
 
@@ -1041,7 +1130,7 @@ body:not(.light-mode) .tech-item img[src*="aws-original"] {
 
     &:hover {
         background: var(--color-secondary);
-        color: var(--color-white);
+        color: #fff;
     }
 
     &:focus-visible {

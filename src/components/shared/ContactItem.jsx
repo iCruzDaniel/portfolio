@@ -1,6 +1,7 @@
 import Icon from './Icon';
+import { TypingAnimation } from '../ui/typing-animation';
 
-export default function ContactItem({ icon, label, value }) {
+export default function ContactItem({ icon, label, value, startDelay = 0 }) {
   return (
     <div className="contact-item">
       <div className="icon">
@@ -8,7 +9,16 @@ export default function ContactItem({ icon, label, value }) {
         <span>{label}</span>
       </div>
       <p>
-        <span>{value}</span>
+        <span>
+          <TypingAnimation
+            as="span"
+            words={[value]}
+            duration={30}
+            delay={startDelay}
+            showCursor={false}
+            className="leading-none"
+          />
+        </span>
       </p>
     </div>
   );

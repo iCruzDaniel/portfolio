@@ -11,7 +11,7 @@ import timeline from '../../data/timeline';
 export default function AboutSection({ isActive, onTechClick }) {
   return (
     <Section id="about" isActive={isActive}>
-      <MainTitle prefix="About" highlighted="me" bgText="my stats" />
+      <MainTitle prefix="About" highlighted="me" bgText="my stats" isActive={isActive} />
 
       <div className="about-container">
         <div className="left-about">
@@ -30,7 +30,7 @@ export default function AboutSection({ isActive, onTechClick }) {
           <DownloadButton />
         </div>
 
-        <div className="right-about">
+        <div className="right-about" key={isActive ? 'about-active' : 'about-idle'}>
           {aboutStats.map((stat, i) => (
             <AboutStat key={i} number={stat.number} label={stat.label} />
           ))}

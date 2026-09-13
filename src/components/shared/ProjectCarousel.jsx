@@ -85,6 +85,12 @@ export default function ProjectCarousel({ projects }) {
             disabled={page === 0}
             aria-label="Previous projects"
           >
+            {page !== 0 && (
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 animate-sonar rounded-full border-2 border-primary/60"
+              />
+            )}
             <Icon name="chevron-left" />
           </button>
         )}
@@ -115,6 +121,12 @@ export default function ProjectCarousel({ projects }) {
             disabled={page === pageCount - 1}
             aria-label="Next projects"
           >
+            {page !== pageCount - 1 && (
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 animate-sonar rounded-full border-2 border-primary/60"
+              />
+            )}
             <Icon name="chevron-right" />
           </button>
         )}

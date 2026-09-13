@@ -1,12 +1,28 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
+import { motion } from 'motion/react';
+import { X } from 'lucide-react';
 import certificates from '../../data/certificates';
 import Icon from './Icon';
 
 const GRID_LIMIT = 4;
 
 function CertImage({ src, alt }) {
+  const [loaded, setLoaded] = useState(false);
+  const reservedPlaceholderStyle = loaded ? undefined : { aspectRatio: '16 / 10' };
+
   return (
-    <img src={src} alt={alt} loading="lazy" />
+    <div className="cert-image-wrapper" style={reservedPlaceholderStyle}>
+      {!loaded && <div className="cert-image-skeleton" aria-hidden="true" />}
+      <motion.img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: loaded ? 1 : 0 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        onLoad={() => setLoaded(true)}
+      />
+    </div>
   );
 }
 
@@ -103,8 +119,12 @@ export default function CertPopup({ skillName, onClose }) {
         ref={modalRef}
         onKeyDown={handleKeyDown}
       >
-        <button className="popup-close" onClick={onClose} aria-label="Close">
-          &times;
+        <button className="popup-close group" onClick={onClose} aria-label="Close">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 animate-sonar rounded-full border-2 border-primary/60"
+          />
+          <X className="transition-transform duration-300 group-hover:rotate-90" />
         </button>
         <div className="popup-title">{skillName}</div>
 

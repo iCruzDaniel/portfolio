@@ -1,5 +1,6 @@
 import DownloadButton from '../shared/DownloadButton';
 import ContactButton from '../shared/ContactButton';
+import { TypingAnimation } from '../ui/typing-animation';
 
 export default function HomeSection({ isActive, onNavigate }) {
   return (
@@ -22,7 +23,16 @@ export default function HomeSection({ isActive, onNavigate }) {
         <div className="right-header">
           <div className="rt-heading">
             <h1 className="name">
-              Hi, I'm <span>Daniel Cruz. </span>
+              Hi, I'm{' '}
+              <TypingAnimation
+                key={isActive ? 'name-active' : 'name-idle'}
+                as="span"
+                words={['Daniel Cruz.']}
+                duration={70}
+                delay={700}
+                startOnView={false}
+                className="leading-none"
+              />{' '}
               An Engineering Professional.
             </h1>
           </div>
