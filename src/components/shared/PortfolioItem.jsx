@@ -42,6 +42,7 @@ export default function PortfolioItem({
   links,
   fit,
   bg,
+  captions,
   category,
 }) {
   const { presentation, slides } = getProjectImages(id);
@@ -58,10 +59,10 @@ export default function PortfolioItem({
   //   text: `${title} — captura ${index + 1}`,
   // }));
 
-  const carouselTips = carouselImages.map((src) => ({
-    image: src,
-    text: '',
-  }));
+  const carouselTips = carouselImages.map((img, index) => {
+    const text = Array.isArray(captions) ? captions[index] : captions?.[img.name];
+    return { image: img.url, text: text ?? '' };
+  });
 
   return (
     <ExpandableScreen
@@ -73,7 +74,7 @@ export default function PortfolioItem({
       <ExpandableScreenTrigger className="h-full" surfaceClassName="bg-card border border-border/80">
         <CutoutCard className={cn(cutoutCardSurfaceClassName, 'h-full')}>
           <CutoutCardMedia className="aspect-[16/9]">
-            <CutoutCardImage src={presentation} alt={`${title} — captura`} fill style={imgStyle} />
+            <CutoutCardImage src={presentation?.url} alt={`${title} — captura`} fill style={imgStyle} />
             <CutoutCardOverlay />
 
             <CutoutCardPin className="left-4 top-4">

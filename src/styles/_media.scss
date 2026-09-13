@@ -16,6 +16,16 @@
     header{
         padding: 0 !important;
     }
+
+    /* Secciones: fade corto solo-opacidad en vez de la animación scale/translate
+       de todo el tree (evita re-composite del viewport en móviles lentos) */
+    .container.active {
+        animation: appear-mobile .25s ease-out;
+        @keyframes appear-mobile {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    }
     .theme-btn{
         display: none;
     }

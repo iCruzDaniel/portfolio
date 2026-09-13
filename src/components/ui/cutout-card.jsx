@@ -181,6 +181,8 @@ export function CutoutCardImage({ className, alt = '', fill = true, ...props }) 
   return (
     <img
       alt={alt}
+      loading="lazy"
+      decoding="async"
       className={cn(
         'object-cover transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover/cutout:scale-105',
         fill && 'absolute inset-0 h-full w-full',

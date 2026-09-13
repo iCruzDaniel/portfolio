@@ -27,6 +27,7 @@ export const projects = [
     result: '3 de 4 fases completadas: correo operativo con proxy reverso, observabilidad y automatización multi-cloud reproducibles.',
     stack: ['Docker', 'Terraform', 'Ansible', 'Cloudflare', 'Prometheus', 'Grafana', 'Traefik'],
     links: [{ icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/MyMailServer' }],
+    captions: { 'portada.webp': '', 'ss-grafana.webp': '' },
   },
   {
     id: 'cirecipes',
@@ -38,6 +39,7 @@ export const projects = [
     result: 'Configurar CI/CD pasa de horas a minutos copiando un flujo ya probado y documentado.',
     stack: ['GitHub Actions', 'Ansible', 'Docker', 'YAML'],
     links: [{ icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/cirecipes' }],
+    captions: { 'portada0.webp': '' },
   },
   {
     id: 'poly-k8',
@@ -51,6 +53,7 @@ export const projects = [
     result: 'Clúster completo operativo: tráfico enrutado por Ingress y comunicaciones entre servicios verificadas extremo a extremo.',
     stack: ['Kubernetes', 'Docker', 'Python', 'FastAPI', 'Node.js', 'TypeScript', 'Express', 'Nginx'],
     links: [{ icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/poly-k8' }],
+    captions: { 'portada.webp': '' },
   },
   {
     id: 'docker',
@@ -89,6 +92,7 @@ export const projects = [
       { icon: 'globe', label: 'Ver demo', url: 'https://roomie-icruzdaniel.streamlit.app' },
       { icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/Roomie' },
     ],
+    captions: { 'ss1.webp': '', 'ss2.webp': '', 'ss3.webp': '', 'ss4.webp': '' },
   },
   {
     id: 'criteria',
@@ -128,6 +132,12 @@ export const projects = [
       { icon: 'user', label: 'Demo admin', url: 'https://open-waitlist-one.vercel.app/admin?email=admin%40demo.com&pass=elAdmin123' },
       { icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/open-waitlist' },
     ],
+    captions: {
+      'Captura-desde-2026-09-12-14-00-00.webp': '',
+      'ss1.webp': '',
+      'ss2.webp': '',
+      'ss3.webp': '',
+    },
   },
   {
     id: 'fast-foody',
@@ -145,6 +155,13 @@ export const projects = [
       { icon: 'user', label: 'Demo staff', url: 'https://icruzdaniel.github.io/fast-foody/login' },
       { icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/fast-foody' },
     ],
+    captions: {
+      'ss1_user_loged.webp': '',
+      'ss2_carrito.webp': '',
+      'ss3.webp': '',
+      'ss4.webp': '',
+      'ss5.webp': '',
+    },
   },
   {
     id: 'referio',
@@ -158,6 +175,7 @@ export const projects = [
     result: 'MVP funcional con 4 niveles de rol, validación automática de permisos y trail de auditoría de cupones.',
     stack: ['Symfony', 'PHP', 'MySQL', 'Bootstrap', 'Docker', 'PHPUnit'],
     links: [{ icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/refer-io' }],
+    captions: { 'cover.webp': '' },
   },
   {
     id: 'axioma-energy',
@@ -171,6 +189,7 @@ export const projects = [
     result: 'Sitio en producción y operando como canal principal de presentación de la marca.',
     stack: ['HTML', 'CSS', 'JavaScript'],
     links: [{ icon: 'globe', label: 'Ver sitio', url: 'https://axiomaenergy.co' }],
+    captions: { 'ss1.webp': '', 'ss2.webp': '' },
   },
   {
     id: 'aerolab',
@@ -184,6 +203,7 @@ export const projects = [
     result: 'Primer canal de presencia digital y captación de miembros de la asociación.',
     stack: ['Next.js', 'TypeScript', 'Tailwind'],
     links: [{ icon: 'globe', label: 'Ver sitio', url: 'https://aerolabcartagena-tj6cb.ondigitalocean.app' }],
+    captions: { 'ss1.webp': '', 'ss2.webp': '', 'ss3.webp': '' },
   },
   {
     id: 'ggc',
@@ -197,6 +217,7 @@ export const projects = [
     result: 'Sitio en producción como presentación oficial de servicios de la firma.',
     stack: ['Next.js', 'TypeScript', 'Tailwind'],
     links: [{ icon: 'globe', label: 'Ver sitio', url: 'https://ggc.aluez.com/' }],
+    captions: { 'ss1.webp': '', 'ss2.webp': '', 'ss3.webp': '' },
   },
 
   // ─── MECHATRONICS ───

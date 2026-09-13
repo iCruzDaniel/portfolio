@@ -14,7 +14,9 @@ export function getProjectImages(projectId) {
     return name.startsWith('presentation');
   });
 
-  const presentation = presentationEntry ? presentationEntry[1] : null;
+  const presentation = presentationEntry
+    ? { url: presentationEntry[1], name: presentationEntry[0].split('/').pop() }
+    : null;
 
   const slides = entries
     .filter(([key]) => key !== (presentationEntry ? presentationEntry[0] : ''))
@@ -22,7 +24,7 @@ export function getProjectImages(projectId) {
       const name = key.split('/').pop();
       return !name.startsWith('_');
     })
-    .map(([, url]) => url);
+    .map(([key, url]) => ({ url, name: key.split('/').pop() }));
 
   return { presentation, slides };
 }

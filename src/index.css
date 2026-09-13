@@ -115,6 +115,14 @@
     }
   }}
 
+/* Movimiento reducido: apaga animaciones decorativas infinitas */
+@media (prefers-reduced-motion: reduce) {
+  .animate-green-spin,
+  .animate-sonar {
+    animation: none;
+  }
+}
+
 /* Preflight suave: no resetear el diseño SCSS global, solo heredar */
 @layer base {
   * {
