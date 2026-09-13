@@ -176,6 +176,8 @@ export const projects = [
     id: 'aerolab',
     title: 'AeroLab Cartagena',
     category: 'web',
+    fit: 'contain',
+    bg: 'var(--color-grey-6)',
     tagline: 'Sitio web de la primera asociación de aeromodelismo de Cartagena.',
     problem: 'Un grupo de estudiantes fundó la primera asociación de aeromodelismo de la ciudad y no tenía cómo mostrar sus proyectos ni sumar nuevos integrantes.',
     solution: 'Landing institucional con portafolio de proyectos, sección sobre nosotros y formulario de contacto, desplegada para la asociación.',

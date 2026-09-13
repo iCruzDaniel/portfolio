@@ -4,6 +4,7 @@ import { animate, useMotionValue, motion } from "motion/react"
 import useTheme from "../../hooks/useTheme"
 import Icon from "../shared/Icon"
 import { cn } from "@/lib/utils"
+import { AnimatedThemeToggler } from "./animated-theme-toggler"
 
 // Theme-aware color configurations (paleta del sitio: greys + secondary verde)
 const themes = {
@@ -94,7 +95,7 @@ export function GradientButtonGroup({
   className,
 }) {
   const [overlayReadyId, setOverlayReadyId] = useState(activeSection)
-  const { isLightMode, toggleTheme } = useTheme()
+  const { isLightMode, setTheme } = useTheme()
   const isDarkMode = !isLightMode
 
   const theme = isDarkMode ? themes.dark : themes.light
@@ -285,53 +286,18 @@ export function GradientButtonGroup({
             </nav>
             {/* Theme toggle - sits in the recessed tray on the right */}
             <div className="relative z-[1] flex items-center px-4">
-              <button
-                type="button"
-                onClick={() => toggleTheme()}
+              <AnimatedThemeToggler
+                theme={isLightMode ? "light" : "dark"}
+                onThemeChange={(next) => setTheme(next === "light")}
                 className={cn(
-                  "relative flex h-[60px] w-[60px] items-center justify-center rounded-[16px] transition-colors",
+                  "relative flex h-[60px] w-[60px] items-center justify-center rounded-[16px] transition-colors [&>svg]:h-7 [&>svg]:w-7",
                   theme.iconColor
                 )}
+                variant="circle"
                 aria-label={
                   isDarkMode ? "Switch to light mode" : "Switch to dark mode"
                 }
-              >
-                {isDarkMode ? (
-                  <svg
-                    width="28"
-                    height="28"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <circle cx="12" cy="12" r="4" />
-                    <path d="M12 2v2" />
-                    <path d="M12 20v2" />
-                    <path d="M4.93 4.93l1.41 1.41" />
-                    <path d="M17.66 17.66l1.41 1.41" />
-                    <path d="M2 12h2" />
-                    <path d="M20 12h2" />
-                    <path d="M6.34 17.66l-1.41 1.41" />
-                    <path d="M19.07 4.93l-1.41 1.41" />
-                  </svg>
-                ) : (
-                  <svg
-                    width="26"
-                    height="26"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                  </svg>
-                )}
-              </button>
+              />
             </div>
           </div>
         </div>
