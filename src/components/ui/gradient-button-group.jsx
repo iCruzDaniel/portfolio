@@ -109,10 +109,10 @@ export function GradientButtonGroup({
             className="absolute inset-0 z-0 rounded-[28px] transition-colors duration-300"
             style={{
               background: isDarkMode
-                ? "linear-gradient(180deg, #1a1f29 0%, #161b24 50%, #12161e 100%)"
+                ? "linear-gradient(180deg, #1c212c 0%, #171c26 100%)"
                 : "linear-gradient(180deg, #c9cfd6 0%, #c2c8cf 50%, #bac1c8 100%)",
               boxShadow: isDarkMode
-                ? "inset 0 2px 8px rgba(0,0,0,0.65), inset 0 1px 2px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.04)"
+                ? "0 6px 18px rgba(0,0,0,0.35), 0 1px 0 rgba(255,255,255,0.05)"
                 : "inset 0 2px 6px rgba(0,0,0,0.12), inset 0 0 0 1px rgba(0,0,0,0.08), 0 1px 0 rgba(255,255,255,0.55)",
             }}
           />
@@ -123,7 +123,7 @@ export function GradientButtonGroup({
             <div
               className="absolute -inset-[4px] rounded-[28px] border-[1px] transition-colors duration-300"
               style={{
-                background: isDarkMode ? "#0d1119" : "#d6dbe0",
+                background: isDarkMode ? "#1c212c" : "#d6dbe0",
                 borderColor: isDarkMode
                   ? "rgba(255,255,255,0.06)"
                   : "rgba(0,0,0,0.08)",
@@ -135,13 +135,13 @@ export function GradientButtonGroup({
               className="relative inline-flex items-center gap-3 rounded-[24px] p-1.5 transition-colors duration-300"
               style={{
                 background: isDarkMode
-                  ? "linear-gradient(180deg, #2e353f 0%, #282f38 52%, #232a33 100%)"
+                  ? "linear-gradient(180deg, #242a35 0%, #20252f 100%)"
                   : "linear-gradient(180deg, #ffffff 0%, #fdfdfe 52%, #fafbfc 100%)",
                 borderTop: isDarkMode
-                  ? "1px solid rgba(255,255,255,0.08)"
+                  ? "1px solid rgba(255,255,255,0.05)"
                   : "1px solid rgba(255,255,255,1)",
                 boxShadow: isDarkMode
-                  ? "none"
+                  ? "0 1px 0 rgba(255,255,255,0.03)"
                   : "0 1px 2px rgba(0,0,0,0.04), 0 1px 0 rgba(255,255,255,1)",
               }}
             >
@@ -152,9 +152,9 @@ export function GradientButtonGroup({
                 const wellStyle = isDarkMode
                   ? {
                       background:
-                        "linear-gradient(180deg, #12161f 0%, #161b24 50%, #13171f 100%)",
+                        "linear-gradient(180deg, #151a23 0%, #181d27 100%)",
                       boxShadow:
-                        "inset 0 2px 6px rgba(0,0,0,0.85), inset 0 0 4px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.06)",
+                        "inset 0 1px 4px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.03)",
                     }
                   : {
                       background:
@@ -165,9 +165,8 @@ export function GradientButtonGroup({
 
                 const innerGapStyle = isDarkMode
                   ? {
-                      background: "#10141c",
-                      boxShadow:
-                        "inset 0 1px 3px rgba(0,0,0,0.85), inset 0 0 2px rgba(0,0,0,0.6)",
+                      background: "rgba(0,0,0,0.22)",
+                      boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.03)",
                     }
                   : {
                       background: "#dce0e4",
