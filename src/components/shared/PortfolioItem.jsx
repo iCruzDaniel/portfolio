@@ -64,6 +64,10 @@ export default function PortfolioItem({
     return { image: img.url, text: text ?? '' };
   });
 
+  // En el detalle el blurFill ya rellena el espacio sobrante con la misma imagen
+  // difuminada; el background plano ocultaría ese blur en las áreas letterbox.
+  const { background: _bg, ...carouselImageStyle } = imgStyle;
+
   return (
     <ExpandableScreen
       layoutId={`portfolio-${id}`}
@@ -133,7 +137,8 @@ export default function PortfolioItem({
               showIndicators={carouselImages.length > 1}
               showProgress={carouselImages.length > 1}
               autoplayInterval={4500}
-              imageStyle={imgStyle}
+              blurFill
+              imageStyle={carouselImageStyle}
             />
           </div>
 

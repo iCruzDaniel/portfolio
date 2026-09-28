@@ -56,6 +56,7 @@ export function LoadingCarousel({
   autoplayInterval = 4500,
   backgroundGradient = false,
   shuffleTips = false,
+  blurFill = false,
 }) {
   const [api, setApi] = useState();
   const [current, setCurrent] = useState(0);
@@ -145,12 +146,25 @@ export function LoadingCarousel({
                     }
                     className={`relative ${aspectRatioClasses[aspectRatio]} w-full overflow-hidden`}
                   >
+                    {blurFill && (
+                      <img
+                        src={tip.image}
+                        alt=""
+                        aria-hidden
+                        loading="lazy"
+                        decoding="async"
+                        className="absolute inset-0 h-full w-full scale-110 object-cover blur-2xl"
+                      />
+                    )}
                     <img
                       src={tip.image}
                       alt={tip.text ? `Visual representation for tip: ${tip.text}` : ''}
                       loading="lazy"
                       decoding="async"
-                      className="absolute inset-0 h-full w-full object-cover"
+                      className={cn(
+                        'absolute inset-0 h-full w-full',
+                        blurFill ? 'object-contain' : 'object-cover',
+                      )}
                       style={imageStyle}
                     />
                     {backgroundGradient && (
