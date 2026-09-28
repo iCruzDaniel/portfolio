@@ -114,7 +114,7 @@ export const projects = [
     solution: 'Clasificador de URLs entrenado sobre el dataset PhiUSIIL, que detecta sitios de phishing por características de la propia URL.',
     result: 'Clasificador entrenado y evaluado sobre el dataset de referencia PhiUSIIL.',
     stack: ['Python', 'Machine Learning'],
-    links: [],
+    links: [{ icon: 'github', label: 'Ver código', url: 'https://github.com/iCruzDaniel/Solucion-PhiUSIIL-URL-Phishing' }],
   },
 
   // ─── APPS WEB & LANDING PAGES ───
