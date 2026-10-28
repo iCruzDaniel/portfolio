@@ -20,13 +20,12 @@
     /* Secciones: fade corto solo-opacidad en vez de la animación scale/translate
        de todo el tree (evita re-composite del viewport en móviles lentos) */
     .container.active {
-        animation: appear-mobile .25s ease-out;
-        @keyframes appear-mobile {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
+        animation-duration: .3s;
     }
     .theme-btn{
+        display: none;
+    }
+    .lang-btn{
         display: none;
     }
     .header-content{
@@ -43,8 +42,8 @@
         .rt-cta{ order: 2; width: 90%; margin: 0 auto; justify-content: center; }
         .left-header .image{ width: 82%; margin: 0 auto; }
         .rt-paragraph{ order: 4; width: 90%; margin: 0 auto; }
-        .name{
-            font-size: 2.5rem !important;
+        .rt-heading h1.name{
+            font-size: calc(min(2.6rem, calc((100vw - 80px) / 8.5)) * var(--name-scale, 1)) !important;
             text-align: center;
             padding-top: 1.5rem;
         }
@@ -171,6 +170,9 @@
 @media screen and (max-width:1432px){
     .container{
         padding: 7rem 11rem;
+    }
+    .header-content .right-header .name{
+        font-size: calc(min(3rem, calc((100vw - 352px) / 17)) * var(--name-scale, 1));
     }
 
     .contact-content-con{
@@ -324,7 +326,7 @@
     .header-content .right-header{
         display: contents;
         .name{
-            font-size: 2.5rem !important;
+            font-size: calc(min(3rem, calc((100vw - 192px) / 8.5)) * var(--name-scale, 1)) !important;
             text-align: center;
             padding-top: 3rem;
         }

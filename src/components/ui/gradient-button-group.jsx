@@ -3,6 +3,7 @@ import { animate, useMotionValue, motion } from "motion/react"
 
 import useTheme from "../../hooks/useTheme"
 import Icon from "../shared/Icon"
+import LangButton from "../shared/LangButton"
 import { cn } from "@/lib/utils"
 import { AnimatedThemeToggler } from "./animated-theme-toggler"
 
@@ -286,6 +287,13 @@ export function GradientButtonGroup({
             </nav>
             {/* Theme toggle - sits in the recessed tray on the right */}
             <div className="relative z-[1] flex items-center px-4">
+              <LangButton
+                variant="dock"
+                className={cn(
+                  "relative flex h-[44px] w-[38px] flex-col items-center justify-center gap-0 rounded-[12px] [&>svg]:h-4 [&>svg]:w-4 [&>span]:text-[0.6rem] [&>span]:font-semibold",
+                  theme.iconColor
+                )}
+              />
               <AnimatedThemeToggler
                 theme={isLightMode ? "light" : "dark"}
                 onThemeChange={(next) => setTheme(next === "light")}

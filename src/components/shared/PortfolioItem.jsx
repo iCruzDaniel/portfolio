@@ -1,5 +1,7 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import Icon from './Icon';
+import { useI18n } from '../../i18n';
 import {
   ExpandableScreen,
   ExpandableScreenContent,
@@ -19,10 +21,6 @@ import {
 import { projectCategories } from '../../data/projects';
 import { getProjectImages } from '../../data/projectImages';
 import { LoadingCarousel } from '../ui/loading-carousel';
-
-const CATEGORY_LABELS = Object.fromEntries(
-  projectCategories.map((c) => [c.id, c.title])
-);
 
 const CATEGORY_SHORT = {
   web: 'WEB',
@@ -44,24 +42,72 @@ export default function PortfolioItem({
   bg,
   captions,
   category,
+  active = true,
 }) {
+  const { t, tr } = useI18n();
   const { presentation, slides } = getProjectImages(id);
+  const stackRef = useRef(null);
+  const stackRoRef = useRef(null);
+  const [fitCount, setFitCount] = useState(null);
+
+  const measureStack = useCallback(() => {
+    const el = stackRef.current;
+    const layer = el?.querySelector('.portfolio-stack-measure');
+    const total = stack?.length ?? 0;
+    if (!el || !layer || total === 0) return;
+    const box = el.getBoundingClientRect();
+    if (box.width === 0) return;
+    const rects = [...layer.querySelectorAll('.portfolio-stack-chip')].map((c) => c.getBoundingClientRect());
+    const probe = layer.querySelector('.portfolio-stack-more');
+    const probeWidth = probe ? probe.getBoundingClientRect().width : 0;
+    const limit = box.bottom + 1;
+    const firstClipped = rects.findIndex((r) => r.bottom > limit);
+    const kMax = firstClipped === -1 ? total : firstClipped;
+    if (kMax >= total) {
+      setFitCount(total);
+      return;
+    }
+    const gap = parseFloat(getComputedStyle(layer).columnGap) || 0;
+    let k = kMax;
+    while (k > 0) {
+      const last = rects[k - 1];
+      if (last.right - box.left + gap + probeWidth <= box.width) break;
+      k -= 1;
+    }
+    setFitCount(k);
+  }, [stack]);
+
+  const attachStack = useCallback((node) => {
+    stackRef.current = node;
+    stackRoRef.current?.disconnect();
+    stackRoRef.current = null;
+    if (node) {
+      stackRoRef.current = new ResizeObserver(measureStack);
+      stackRoRef.current.observe(node);
+      measureStack();
+    }
+  }, [measureStack]);
+
+  useEffect(() => {
+    if (active) measureStack();
+  }, [active, measureStack]);
+
+  useEffect(() => {
+    document.fonts?.ready.then(measureStack);
+  }, [measureStack]);
+
   const carouselImages = slides.length > 0 ? slides : [presentation].filter(Boolean);
   const imgStyle = {
     ...(fit ? { objectFit: fit, objectPosition: 'top' } : {}),
     ...(bg ? { background: bg } : {}),
   };
-  const categoryLabel = CATEGORY_LABELS[category] || category;
+  const categoryTitle = projectCategories.find((c) => c.id === category)?.title;
+  const categoryLabel = tr(categoryTitle) || category;
   const categoryShort = CATEGORY_SHORT[category] || categoryLabel;
 
-  // const carouselTips = carouselImages.map((src, index) => ({
-  //   image: src,
-  //   text: `${title} — captura ${index + 1}`,
-  // }));
-
   const carouselTips = carouselImages.map((img, index) => {
-    const text = Array.isArray(captions) ? captions[index] : captions?.[img.name];
-    return { image: img.url, text: text ?? '' };
+    const raw = Array.isArray(captions) ? captions[index] : captions?.[img.name];
+    return { image: img.url, text: raw ? tr(raw) : '' };
   });
 
   // En el detalle el blurFill ya rellena el espacio sobrante con la misma imagen
@@ -76,9 +122,9 @@ export default function PortfolioItem({
       animationDuration={0.35}
     >
       <ExpandableScreenTrigger className="h-full" surfaceClassName="bg-card border border-border/80">
-        <CutoutCard className={cn(cutoutCardSurfaceClassName, 'h-full')}>
-          <CutoutCardMedia className="aspect-[16/9]">
-            <CutoutCardImage src={presentation?.url} alt={`${title} — captura`} fill style={imgStyle} />
+        <CutoutCard className={cn(cutoutCardSurfaceClassName, 'h-full flex flex-col')}>
+          <CutoutCardMedia className="aspect-[16/9] shrink-0">
+              <CutoutCardImage src={presentation?.url} alt={title} fill style={imgStyle} />
             <CutoutCardOverlay />
 
             <CutoutCardPin className="left-4 top-4">
@@ -90,31 +136,48 @@ export default function PortfolioItem({
 
             <CutoutCardAction className="bottom-4 right-4 flex items-center gap-2 rounded-full bg-cta px-4 py-2 text-sm font-semibold text-cta-foreground shadow-lg">
               <Icon name="chevron-right" className="h-4 w-4" />
-              Ver caso
+              {t('portfolioItem.viewCase')}
             </CutoutCardAction>
           </CutoutCardMedia>
 
-          <CutoutCardContent className="flex flex-1 flex-col gap-2 p-5">
+          <CutoutCardContent className="flex flex-1 flex-col gap-2 p-5 min-h-0">
             <h3 className="text-lg font-bold leading-tight text-card-foreground">{title}</h3>
-            <p className="text-sm leading-relaxed text-tagline">{tagline}</p>
+            <p className="portfolio-tagline text-sm leading-relaxed text-tagline">{tr(tagline)}</p>
 
             {stack && stack.length > 0 && (
-              <div className="mt-auto flex flex-wrap gap-1.5 pt-3">
-                {stack.slice(0, 3).map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-border px-3 py-1 text-xs text-card-foreground"
-                  >
-                    {tech}
+              <div className="portfolio-stack" ref={attachStack}>
+                <div className="portfolio-stack-measure" aria-hidden="true">
+                  {stack.map((tech, idx) => (
+                    <span
+                      key={`${tech}-${idx}`}
+                      className="portfolio-stack-chip whitespace-nowrap rounded-full border border-border px-3 py-1 text-xs text-card-foreground"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  <span className="portfolio-stack-more whitespace-nowrap rounded-full border border-border px-3 py-1 text-xs text-card-foreground">
+                    +{stack.length}
                   </span>
-                ))}
-                {stack.length > 3 && (
-                  <span
-                    className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground"
-                    aria-label={`+${stack.length - 3} more technologies`}
-                  >
-                    +{stack.length - 3}
-                  </span>
+                </div>
+                {fitCount !== null && (
+                  <>
+                    {stack.slice(0, fitCount).map((tech, idx) => (
+                      <span
+                        key={`${tech}-${idx}`}
+                        className="portfolio-stack-chip whitespace-nowrap rounded-full border border-border px-3 py-1 text-xs text-card-foreground"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {fitCount < stack.length && (
+                      <span
+                        className="portfolio-stack-more whitespace-nowrap rounded-full border border-border px-3 py-1 text-xs text-card-foreground"
+                        aria-label={`+${stack.length - fitCount} more technologies`}
+                      >
+                        +{stack.length - fitCount}
+                      </span>
+                    )}
+                  </>
                 )}
               </div>
             )}
@@ -128,7 +191,7 @@ export default function PortfolioItem({
             {categoryLabel}
           </p>
           <h3 className="mt-2 text-3xl font-bold leading-tight sm:text-4xl">{title}</h3>
-          {tagline && <p className="mt-3 text-base text-tagline sm:text-lg">{tagline}</p>}
+          {tagline && <p className="mt-3 text-base text-tagline sm:text-lg">{tr(tagline)}</p>}
 
           <div className="mt-8 overflow-hidden rounded-2xl border border-border/50">
             <LoadingCarousel
@@ -147,25 +210,25 @@ export default function PortfolioItem({
               {problem && (
                 <div>
                   <span className="block text-xs font-semibold uppercase tracking-widest text-tagline">
-                    Problema
+                    {t('portfolioItem.problem')}
                   </span>
-                  <p className="mt-2 text-sm leading-relaxed text-card-foreground">{problem}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-card-foreground">{tr(problem)}</p>
                 </div>
               )}
               {solution && (
                 <div>
                   <span className="block text-xs font-semibold uppercase tracking-widest text-tagline">
-                    Solución
+                    {t('portfolioItem.solution')}
                   </span>
-                  <p className="mt-2 text-sm leading-relaxed text-card-foreground">{solution}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-card-foreground">{tr(solution)}</p>
                 </div>
               )}
               {result && (
                 <div>
                   <span className="block text-xs font-semibold uppercase tracking-widest text-tagline">
-                    Resultado
+                    {t('portfolioItem.result')}
                   </span>
-                  <p className="mt-2 text-sm leading-relaxed text-card-foreground">{result}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-card-foreground">{tr(result)}</p>
                 </div>
               )}
             </div>
@@ -197,7 +260,7 @@ export default function PortfolioItem({
                   <span className="btn-icon">
                     <Icon name={link.icon} />
                   </span>
-                  <span className="btn-text">{link.label}</span>
+                  <span className="btn-text">{tr(link.label)}</span>
                 </a>
               ))}
             </div>

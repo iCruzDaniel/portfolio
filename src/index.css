@@ -137,3 +137,7 @@
     animation: none;
     mix-blend-mode: normal;
 }
+
+  ::view-transition-new(root) {
+    clip-path: var(--magicui-theme-vt-clip-from, none);
+}

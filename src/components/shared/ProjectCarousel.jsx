@@ -15,7 +15,7 @@ function getPageSize() {
   return BREAKPOINTS[BREAKPOINTS.length - 1].size;
 }
 
-export default function ProjectCarousel({ projects }) {
+export default function ProjectCarousel({ projects, active = true }) {
   const [page, setPage] = useState(0);
   const [pageSize, setPageSize] = useState(() => (typeof window === 'undefined' ? 3 : getPageSize()));
   const trackRef = useRef(null);
@@ -105,7 +105,7 @@ export default function ProjectCarousel({ projects }) {
               <div className="carousel-page" key={i}>
                 <div className="portfolios">
                   {pageProjects.map((project) => (
-                    <PortfolioItem key={project.id} {...project} />
+                    <PortfolioItem key={project.id} active={active} {...project} />
                   ))}
                 </div>
               </div>

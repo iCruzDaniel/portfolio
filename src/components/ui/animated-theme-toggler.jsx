@@ -240,10 +240,12 @@ export const AnimatedThemeToggler = ({
       delete root.dataset.magicuiThemeVt
       root.style.removeProperty("--magicui-theme-toggle-vt-duration")
       root.style.removeProperty("--magicui-theme-vt-clip-from")
+      document.body.style.removeProperty("transition")
       cancelAnim()
     }
 
     isTransitioningRef.current = true
+    document.body.style.setProperty("transition", "none")
     const transition = document.startViewTransition(() => {
       flushSync(applyTheme)
     })

@@ -89,19 +89,23 @@ section {
 
 .container {
     display: none;
-    transform: translateY(-100%) scale(0);
-    transition: background-color .4s ease-in-out;
     background-color: var(--color-primary);
 }
 
 
 .active {
     display: block;
-    animation: appear 1s ease-in-out;
-    transform: translateY(0) scaleY(1);
+    transform: none;
+    animation: appear .6s ease-in-out both;
     @keyframes appear {
-        0%{ transform: translateY(-100%) scaleY(0); }
-        100%{ transform: translateY(0) scaleY(1); }
+        0%{ opacity: 0; transform: translateY(-3rem) scale(0.985); }
+        100%{ opacity: 1; transform: none; }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .active {
+        animation: none;
     }
 }
 
@@ -153,6 +157,46 @@ section {
     & > * {
         pointer-events: auto;
     }
+}
+
+.lang-btn {
+    top: calc(5% + 8px);
+    right: calc(3% + 70px + 14px);
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background-color: var(--color-grey-4);
+    cursor: pointer;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.1rem;
+    box-shadow: 0 3px 15px rgba(0,0,0,.3);
+    transition: all .1s ease-in-out;
+    border: none;
+    padding: 0;
+    color: var(--color-grey-2);
+    font-family: inherit;
+
+    i, svg { font-size: 1rem; }
+    span {
+        font-size: 0.66rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    &:hover { color: var(--color-secondary); }
+    &:active { transform: translateY(-3px); }
+}
+
+.lang-dock-btn {
+    border: none;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
 }
 
 .theme-btn {
@@ -225,8 +269,14 @@ section {
         justify-content: center;
         padding-right: 18rem;
         .name {
-            font-size: 3rem;
-            span { color: var(--color-secondary); }
+            /* Segmentos: A="Hola," B="soy [nombre]" C="rol". B indivisible;
+               C flexible (wrap por palabras). Fuente fluida: B siempre cabe
+               (≈8.5em); --name-scale reduce proporcionalmente si hay >4 filas. */
+            font-size: calc(min(3rem, calc((100vw - 576px) / 17)) * var(--name-scale, 1));
+
+            .name-typing { color: var(--color-secondary); }
+            .name-seg-b { white-space: nowrap; }
+            .name-seg-c { display: block; }
         }
         .rt-cta {
             display: flex;
@@ -455,6 +505,47 @@ section {
     grid-gap: 2rem;
     align-items: stretch;
     margin-top: 3rem;
+    width: 100%;
+}
+
+.portfolios > * {
+    height: 100%;
+    min-width: 0;
+}
+
+// Project Cards
+.portfolio-tagline {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.6;
+    min-height: calc(1.6em * 3);
+}
+
+.portfolio-stack {
+    margin-top: auto;
+    padding-top: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 0.375rem;
+    height: calc(0.75rem + 1.75rem * 2 + 0.375rem);
+    overflow: hidden;
+    position: relative;
+}
+
+.portfolio-stack-measure {
+    position: absolute;
+    inset: 0;
+    visibility: hidden;
+    pointer-events: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 0.375rem;
 }
 
 // Project Carousel
@@ -478,12 +569,14 @@ section {
 
 .carousel-track {
     display: flex;
+    align-items: stretch;
     transition: transform .45s ease-in-out;
 }
 
 .carousel-page {
     flex: 0 0 100%;
     min-width: 0;
+    display: flex;
 }
 
 @media (prefers-reduced-motion: reduce) {

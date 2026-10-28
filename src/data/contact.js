@@ -1,28 +1,28 @@
 export const contactInfo = [
   {
     icon: 'map-marker-alt',
-    label: 'Location:',
+    label: { es: 'Ubicación:', en: 'Location:', pt: 'Localização:' },
     value: 'Cartagena, Colombia',
   },
   {
     icon: 'envelope',
-    label: 'Email:',
+    label: { es: 'Correo:', en: 'Email:', pt: 'E-mail:' },
     value: 'sp_dicruz044@hotmail.com',
   },
   {
     icon: 'user-graduate',
-    label: 'Education:',
+    label: { es: 'Educación:', en: 'Education:', pt: 'Educação:' },
     value: 'Universidad Tecnológica de Bolívar',
   },
   {
     icon: 'phone-alt',
-    label: 'Mobile Number:',
+    label: { es: 'Celular:', en: 'Mobile Number:', pt: 'Celular:' },
     value: '(+57) 3223657797',
   },
   {
     icon: 'globe',
-    label: 'Languages:',
-    value: 'English, Spanish',
+    label: { es: 'Idiomas:', en: 'Languages:', pt: 'Idiomas:' },
+    value: { es: 'Español, Inglés', en: 'English, Spanish', pt: 'Inglês, Espanhol' },
   },
 ];
 

@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { X } from 'lucide-react';
 import certificates from '../../data/certificates';
 import Icon from './Icon';
+import { useI18n } from '../../i18n';
 
 const GRID_LIMIT = 4;
 
@@ -27,6 +28,7 @@ function CertImage({ src, alt }) {
 }
 
 export default function CertPopup({ skillName, onClose }) {
+  const { t } = useI18n();
   const [showAll, setShowAll] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const modalRef = useRef(null);
@@ -131,7 +133,7 @@ export default function CertPopup({ skillName, onClose }) {
         {!hasCerts ? (
           <div className="popup-desc">
             <Icon name="bug" />
-            No disponible.
+            {t('certs.unavailable')}
           </div>
         ) : isSingle ? (
           <div className="cert-single">

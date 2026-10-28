@@ -4,9 +4,11 @@ import useTheme from './hooks/useTheme';
 import useNavigation from './hooks/useNavigation';
 
 import Navigation from './components/layout/Navigation';
+import LangButton from './components/shared/LangButton';
 import { AnimatedThemeToggler } from './components/ui/animated-theme-toggler';
 import { GradientButtonGroup } from './components/ui/gradient-button-group';
 import CertPopup from './components/shared/CertPopup';
+import { I18nProvider } from './i18n';
 
 import HomeSection from './components/sections/HomeSection';
 import AboutSection from './components/sections/AboutSection';
@@ -18,7 +20,7 @@ export default function App() {
   const { activeSection, navigateTo, activePopup, openPopup, closePopup } = useNavigation();
 
   return (
-    <>
+    <I18nProvider>
       <HomeSection isActive={activeSection === 'home'} onNavigate={navigateTo} />
 
       <main>
@@ -32,6 +34,7 @@ export default function App() {
 
       {/* Desktop: controles laterales + toggle flotante */}
       <Navigation activeSection={activeSection} onNavigate={navigateTo} />
+      <LangButton />
       <AnimatedThemeToggler
         theme={isLightMode ? 'light' : 'dark'}
         onThemeChange={(next) => setTheme(next === 'light')}
@@ -45,6 +48,6 @@ export default function App() {
         className="gradient-dock"
       />
       <CertPopup skillName={activePopup} onClose={closePopup} />
-    </>
+    </I18nProvider>
   );
 }

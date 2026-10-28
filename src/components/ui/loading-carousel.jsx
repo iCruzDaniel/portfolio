@@ -90,6 +90,7 @@ export function LoadingCarousel({
       setCurrent(newIndex);
       setDirection(api.scrollSnapList().indexOf(newIndex) - current);
       onTipChange?.(newIndex);
+      autoplay.reset();
     };
 
     api.on('select', onSelect);
@@ -97,7 +98,7 @@ export function LoadingCarousel({
     return () => {
       api.off('select', onSelect);
     };
-  }, [api, current, onTipChange]);
+  }, [api, current, onTipChange, autoplay]);
 
   const handleSelect = useCallback(
     (index) => {

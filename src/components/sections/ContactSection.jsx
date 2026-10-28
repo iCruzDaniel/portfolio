@@ -2,25 +2,35 @@ import Section from '../layout/Section';
 import MainTitle from '../shared/MainTitle';
 import ContactItem from '../shared/ContactItem';
 import Icon from '../shared/Icon';
+import { useI18n } from '../../i18n';
 import { contactInfo, socialLinks } from '../../data/contact';
 
 export default function ContactSection({ isActive }) {
+  const { t, tr, lang } = useI18n();
   return (
     <Section id="contact" isActive={isActive}>
       <div className="contact-container">
-        <MainTitle prefix="Contact" highlighted="Me" bgText="Contact" isActive={isActive} />
+        <MainTitle
+          prefix={t('sections.contact.prefix')}
+          highlighted={t('sections.contact.highlighted')}
+          bgText={t('sections.contact.bgText')}
+          isActive={isActive}
+        />
 
         <div className="contact-content-con">
           <div className="left-contact">
-            <h4>Contact me here</h4>
-            <p>
-              I'm always excited to hear from new people about their ideas, projects, and
-              potential collaborations.
-            </p>
+            <h4>{t('contact.title')}</h4>
+            <p>{t('contact.subtitle')}</p>
 
-            <div className="contact-info" key={isActive ? 'contact-active' : 'contact-idle'}>
+            <div className="contact-info" key={`contact-active-${lang}`}>
               {contactInfo.map((item, i) => (
-                <ContactItem key={i} {...item} startDelay={i * 0.35} />
+                <ContactItem
+                  key={i}
+                  icon={item.icon}
+                  label={tr(item.label)}
+                  value={tr(item.value)}
+                  startDelay={i * 0.35}
+                />
               ))}
             </div>
 

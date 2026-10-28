@@ -2,7 +2,7 @@ const CDN = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons';
 
 export const skillGroups = [
   {
-    title: 'Languages',
+    title: { es: 'Lenguajes', en: 'Languages', pt: 'Linguagens' },
     items: [
       { name: 'HTML5', icon: `${CDN}/html5/html5-original.svg` },
       { name: 'CSS3', icon: `${CDN}/css3/css3-original.svg` },
@@ -13,7 +13,7 @@ export const skillGroups = [
     ],
   },
   {
-    title: 'Frameworks',
+    title: { es: 'Frameworks', en: 'Frameworks', pt: 'Frameworks' },
     items: [
       { name: 'Bootstrap', icon: `${CDN}/bootstrap/bootstrap-original.svg` },
       { name: 'Vue', icon: `${CDN}/vuejs/vuejs-original.svg` },
@@ -24,7 +24,7 @@ export const skillGroups = [
     ],
   },
   {
-    title: 'DevOps',
+    title: { es: 'DevOps', en: 'DevOps', pt: 'DevOps' },
     items: [
       { name: 'Docker', icon: `${CDN}/docker/docker-original.svg` },
       { name: 'Kubernetes', icon: `${CDN}/kubernetes/kubernetes-plain.svg` },
