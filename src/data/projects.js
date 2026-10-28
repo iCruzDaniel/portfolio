@@ -286,8 +286,9 @@ export const projects = [
     stack: ['HTML', 'CSS', 'JavaScript'],
     links: [{ icon: 'globe', label: { es: 'Ver sitio', en: 'Visit site', pt: 'Ver site' }, url: 'https://genercom.co/' }],
     captions: {
-      'ss1.webp': { es: 'Catálogo de servicios de ingeniería.', en: 'Engineering services catalog.', pt: 'Catálogo de serviços de engenharia.' },
-      'ss2.webp': { es: 'Sección fotovoltaica con estimación de paneles según consumo.', en: 'Photovoltaic section with panel estimation by consumption.', pt: 'Seção fotovoltaica com estimativa de painéis por consumo.' },
+      'ss1.webp': { es: 'Página de inicio de Genercom.', en: 'Genercom homepage.', pt: 'Página inicial da Genercom.' },
+      'ss2.webp': { es: 'Catálogo de servicios de ingeniería.', en: 'Engineering services catalog.', pt: 'Catálogo de serviços de engenharia.' },
+      'ss3.webp': { es: 'Sección fotovoltaica con estimación de paneles según consumo.', en: 'Photovoltaic section with panel estimation by consumption.', pt: 'Seção fotovoltaica com estimativa de painéis por consumo.' },
     },
   },
   {
